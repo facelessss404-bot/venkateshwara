@@ -1,0 +1,21 @@
+{
+  "name": "sri-venkateswara-company-website",
+  "version": "1.0.0",
+  "description": "Sri Venkateswara Company (SVC) - Premium Cinematic Industrial Website",
+  "main": "index.html",
+  "scripts": {
+    "start": "npx serve . -l 3000",
+    "serve": "npx serve .",
+    "dev": "npx serve . -l 3000"
+  },
+  "keywords": [
+    "threejs",
+    "gsap",
+    "industrial-website",
+    "fasteners",
+    "cold-forging",
+    "srivenkateswara"
+  ],
+  "author": "Sri Venkateswara Company",
+  "license": "UNLICENSED"
+}

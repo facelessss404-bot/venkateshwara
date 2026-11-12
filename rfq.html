@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Technical Request a Quote (RFQ) | Sri Venkateswara Company — CAD Dimension Configurator</title>
+  <meta name="description" content="Configure custom cold-forged rivet dimensions (shank diameter, shank length, head diameter, wall thickness in mm), material grades, coatings, and heat treatment for formal quote.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="tel:+919047077874" class="text-xs font-mono text-slate-300 hover:text-amber-400">
+          +91 (904) 707-7874
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <span class="text-amber-400 font-mono text-xs">Direct Desk: +91 (904) 707-7874</span>
+    </div>
+  </div>
+
+  <main class="pt-24">
+    <!-- Hero Header -->
+    <section class="py-12 bg-industrial-grid border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-3xl">
+          <span class="hud-tag text-amber-400 mb-2">TECHNICAL CONVERSION DESK</span>
+          <h1 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-3">
+            Request a Technical Quotation (RFQ)
+          </h1>
+          <p class="text-slate-300 text-sm sm:text-base leading-relaxed">
+            Specify your exact rivet geometry in millimeters. Our interactive CAD blueprint redraws your parameters in real time. We guarantee formal commercial response within 24 business hours.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- RFQ WORKBENCH (FORM + LIVE CAD BLUEPRINT) -->
+    <section class="py-16 bg-void">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-start">
+          
+          <!-- LEFT: Technical Quotation Form -->
+          <div class="lg:col-span-7 bg-surface-primary p-6 sm:p-8 border border-slate-800 rounded-lg shadow-2xl">
+            
+            <form id="svc-rfq-form" class="space-y-8">
+              
+              <!-- STEP 1: CUSTOMER DETAILS -->
+              <div>
+                <div class="flex items-center gap-2 pb-3 border-b border-slate-800 mb-4">
+                  <span class="w-6 h-6 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold">1</span>
+                  <h3 class="font-display font-bold text-white text-base">Client & Corporate Details</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label for="rfq-name" class="block text-xs font-mono text-slate-400 uppercase mb-1">Your Full Name *</label>
+                    <input type="text" id="rfq-name" required placeholder="e.g. S. Ramakrishnan" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+                  <div>
+                    <label for="rfq-email" class="block text-xs font-mono text-slate-400 uppercase mb-1">Corporate Email *</label>
+                    <input type="email" id="rfq-email" required placeholder="e.g. procurement@auto.in" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+                  <div>
+                    <label for="rfq-phone" class="block text-xs font-mono text-slate-400 uppercase mb-1">Phone Number *</label>
+                    <input type="tel" id="rfq-phone" required placeholder="+91 98400 ..." class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+                  <div>
+                    <label for="rfq-company" class="block text-xs font-mono text-slate-400 uppercase mb-1">Company / Organization</label>
+                    <input type="text" id="rfq-company" placeholder="e.g. Tier-1 Automotive Components Ltd" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 2: PRODUCT GEOMETRIC SPECIFICATION (IN MM) -->
+              <div>
+                <div class="flex items-center justify-between pb-3 border-b border-slate-800 mb-4">
+                  <div class="flex items-center gap-2">
+                    <span class="w-6 h-6 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold">2</span>
+                    <h3 class="font-display font-bold text-white text-base">Geometric Specifications</h3>
+                  </div>
+                  <span class="text-[11px] font-mono text-amber-400 uppercase tracking-wider font-semibold">ALL DATA MUST BE IN MM *</span>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Rivet Type -->
+                  <div>
+                    <label for="rfq-rivet-type" class="block text-xs font-mono text-slate-400 uppercase mb-1">Type of Rivets *</label>
+                    <select id="rfq-rivet-type" required class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                      <option value="Solid Rivet">Solid Rivet</option>
+                      <option value="Semi-Tubular">Semi-Tubular Rivet</option>
+                      <option value="Tubular">Tubular Rivet</option>
+                      <option value="Others">Others / Custom Blueprint</option>
+                    </select>
+                  </div>
+
+                  <!-- Head Type -->
+                  <div>
+                    <label for="rfq-head-type" class="block text-xs font-mono text-slate-400 uppercase mb-1">Head Geometry Style</label>
+                    <select id="rfq-head-type" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                      <option value="round">Round Head (Dome)</option>
+                      <option value="mushroom">Mushroom Head (Low Profile)</option>
+                      <option value="flat">Flat Head (Flush Surface)</option>
+                      <option value="dimple">Dimple Head (Punch Center)</option>
+                    </select>
+                  </div>
+
+                  <!-- Shank Diameter -->
+                  <div>
+                    <label for="rfq-shank-dia" class="block text-xs font-mono text-slate-400 uppercase mb-1">Shank Diameter (d_s) in mm *</label>
+                    <input type="number" step="0.05" id="rfq-shank-dia" required value="8.0" min="1.0" max="25.0" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm font-mono outline-none transition-colors">
+                  </div>
+
+                  <!-- Shank Length -->
+                  <div>
+                    <label for="rfq-shank-len" class="block text-xs font-mono text-slate-400 uppercase mb-1">Shank Length (L) in mm *</label>
+                    <input type="number" step="0.1" id="rfq-shank-len" required value="25.0" min="3.0" max="150.0" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm font-mono outline-none transition-colors">
+                  </div>
+
+                  <!-- Head Diameter -->
+                  <div>
+                    <label for="rfq-head-dia" class="block text-xs font-mono text-slate-400 uppercase mb-1">Head Diameter (d_k) in mm *</label>
+                    <input type="number" step="0.1" id="rfq-head-dia" required value="16.0" min="2.0" max="40.0" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm font-mono outline-none transition-colors">
+                  </div>
+
+                  <!-- Tolerance -->
+                  <div>
+                    <label for="rfq-tolerance" class="block text-xs font-mono text-slate-400 uppercase mb-1">Dimensional Tolerance (mm)</label>
+                    <input type="text" id="rfq-tolerance" value="± 0.05 mm" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm font-mono outline-none transition-colors">
+                  </div>
+
+                  <!-- Conditional Wall Thickness (Tubular only) -->
+                  <div id="rfq-wall-thickness-container" class="sm:col-span-2 hidden bg-amber-500/5 border border-amber-500/20 p-3 rounded">
+                    <label for="rfq-wall-thickness" class="block text-xs font-mono text-amber-400 uppercase mb-1">If Tubular: Wall Thickness (t) in mm *</label>
+                    <input type="number" step="0.05" id="rfq-wall-thickness" value="1.2" min="0.2" max="5.0" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2 rounded text-sm font-mono outline-none">
+                  </div>
+                </div>
+              </div>
+
+              <!-- STEP 3: METALLURGY & FINISHING -->
+              <div>
+                <div class="flex items-center gap-2 pb-3 border-b border-slate-800 mb-4">
+                  <span class="w-6 h-6 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center font-mono text-xs font-bold">3</span>
+                  <h3 class="font-display font-bold text-white text-base">Metallurgical Grade & Surface Finishing</h3>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <!-- Material -->
+                  <div>
+                    <label for="rfq-material" class="block text-xs font-mono text-slate-400 uppercase mb-1">Primary Material *</label>
+                    <select id="rfq-material" required class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                      <option value="Mild steel">Mild Steel</option>
+                      <option value="Stainless steel">Stainless Steel</option>
+                      <option value="Copper">Copper</option>
+                      <option value="Brass">Brass</option>
+                      <option value="Aluminum">Aluminum</option>
+                      <option value="Others">Others / Specialized Alloy</option>
+                    </select>
+                  </div>
+
+                  <!-- Material Grade -->
+                  <div>
+                    <label for="rfq-material-grade" class="block text-xs font-mono text-slate-400 uppercase mb-1">Material Grade</label>
+                    <input type="text" id="rfq-material-grade" placeholder="e.g. C1008, SS 304, IS 319" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm font-mono outline-none transition-colors">
+                  </div>
+
+                  <!-- Heat Treatment (Radio) -->
+                  <div>
+                    <label class="block text-xs font-mono text-slate-400 uppercase mb-2">Annealing Heat Treatment</label>
+                    <div class="flex items-center gap-6 text-sm font-mono">
+                      <label class="inline-flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="heat_treatment" value="Yes" class="accent-amber-500">
+                        <span>Yes (Normalized)</span>
+                      </label>
+                      <label class="inline-flex items-center gap-2 cursor-pointer">
+                        <input type="radio" name="heat_treatment" value="No" checked class="accent-amber-500">
+                        <span>No (As-Forged)</span>
+                      </label>
+                    </div>
+                  </div>
+
+                  <!-- Coating Requirements -->
+                  <div>
+                    <label for="rfq-coating" class="block text-xs font-mono text-slate-400 uppercase mb-1">Surface Plating / Coating</label>
+                    <input type="text" id="rfq-coating" placeholder="e.g. Zinc Clear, Yellow Passivation, Nickel, Self Color" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+
+                  <!-- Special Processes -->
+                  <div>
+                    <label for="rfq-special-process" class="block text-xs font-mono text-slate-400 uppercase mb-1">Special Processes</label>
+                    <input type="text" id="rfq-special-process" placeholder="e.g. Knurled shank, step shoulder, ultrasonic clean" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+
+                  <!-- Packing Standard -->
+                  <div>
+                    <label for="rfq-packing" class="block text-xs font-mono text-slate-400 uppercase mb-1">Packing Standard</label>
+                    <input type="text" id="rfq-packing" placeholder="e.g. Polybag 1000 pcs, export palletized box" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  </div>
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <div class="pt-4 border-t border-slate-800 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <span class="text-xs font-mono text-slate-400">Direct transmission to Coimbatore engineering desk.</span>
+                <button type="submit" class="btn-industrial text-xs chamfer-sm px-8 py-3.5 w-full sm:w-auto shadow-xl shadow-amber-900/30">
+                  <span>Submit Specification</span>
+                  <i data-lucide="check-circle" class="w-4 h-4"></i>
+                </button>
+              </div>
+
+            </form>
+
+          </div>
+
+          <!-- RIGHT: Live Parametric SVG CAD Blueprint Preview -->
+          <div class="lg:col-span-5 sticky top-28 space-y-6">
+            
+            <div class="cad-grid-bg border border-cyan-500/30 rounded-lg p-5 shadow-2xl relative overflow-hidden">
+              <div class="flex items-center justify-between pb-3 border-b border-cyan-500/30 mb-4">
+                <div class="flex items-center gap-2">
+                  <span class="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  <span class="font-mono text-xs font-bold text-cyan-400 tracking-wider">LIVE PARAMETRIC CAD BLUEPRINT</span>
+                </div>
+                <span id="bp-label-type" class="font-mono text-[10px] text-amber-400 uppercase">SOLID RIVET</span>
+              </div>
+
+              <!-- SVG Canvas for Blueprint -->
+              <div class="w-full h-80 flex items-center justify-center">
+                <svg id="blueprint-preview-svg" class="w-full h-full" viewBox="0 0 400 320" xmlns="http://www.w3.org/2000/svg">
+                  <!-- Measurement Grid Lines -->
+                  <line x1="200" y1="20" x2="200" y2="300" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="4,4" opacity="0.6"/>
+                  <line x1="40" y1="170" x2="360" y2="170" stroke="#38bdf8" stroke-width="0.75" stroke-dasharray="4,4" opacity="0.4"/>
+
+                  <!-- Rivet Geometry Paths -->
+                  <!-- Head -->
+                  <path id="bp-svg-head" d="M 120 110 C 120 60, 280 60, 280 110 Z" fill="rgba(56, 189, 248, 0.15)" stroke="#38bdf8" stroke-width="2"/>
+                  <!-- Shank -->
+                  <path id="bp-svg-shank" d="M 160 110 L 240 110 L 240 250 L 234 258 L 166 258 L 160 250 Z" fill="rgba(56, 189, 248, 0.2)" stroke="#38bdf8" stroke-width="2"/>
+                  <!-- Hole (for tubular) -->
+                  <path id="bp-svg-hole" d="M 175 258 L 175 180 L 225 180 L 225 258 Z" fill="#050c18" stroke="#f59e0b" stroke-dasharray="3,3" stroke-width="1.5" class="hidden"/>
+
+                  <!-- Head Diameter Dimension Line (Top) -->
+                  <line x1="120" y1="45" x2="280" y2="45" stroke="#f59e0b" stroke-width="1.25"/>
+                  <polyline points="125,41 120,45 125,49" fill="none" stroke="#f59e0b" stroke-width="1.25"/>
+                  <polyline points="275,41 280,45 275,49" fill="none" stroke="#f59e0b" stroke-width="1.25"/>
+                  <text id="bp-label-head-dia" x="200" y="38" fill="#f59e0b" font-size="11" font-family="monospace" text-anchor="middle" font-weight="bold">Ø 16.0 mm</text>
+
+                  <!-- Shank Diameter Dimension Line (Bottom) -->
+                  <line x1="160" y1="280" x2="240" y2="280" stroke="#38bdf8" stroke-width="1.25"/>
+                  <polyline points="165,276 160,280 165,284" fill="none" stroke="#38bdf8" stroke-width="1.25"/>
+                  <polyline points="235,276 240,280 235,284" fill="none" stroke="#38bdf8" stroke-width="1.25"/>
+                  <text id="bp-label-shank-dia" x="200" y="296" fill="#38bdf8" font-size="11" font-family="monospace" text-anchor="middle">Ø 8.0 mm</text>
+
+                  <!-- Shank Length Dimension Line (Side) -->
+                  <line x1="285" y1="110" x2="285" y2="258" stroke="#e2e8f0" stroke-width="1.25"/>
+                  <polyline points="281,115 285,110 289,115" fill="none" stroke="#e2e8f0" stroke-width="1.25"/>
+                  <polyline points="281,253 285,258 289,253" fill="none" stroke="#e2e8f0" stroke-width="1.25"/>
+                  <text id="bp-label-shank-len" x="295" y="188" fill="#e2e8f0" font-size="11" font-family="monospace" text-anchor="start">L: 25.0 mm</text>
+                </svg>
+              </div>
+
+              <!-- Fastener Volumetric & Weight Estimation Telemetry -->
+              <div class="mt-4 pt-3 border-t border-cyan-500/30 grid grid-cols-2 gap-2 font-mono text-[11px]">
+                <div class="p-2 bg-slate-950/60 rounded border border-slate-800">
+                  <span class="text-slate-500 block text-[9px] uppercase">EST. PIECE WEIGHT</span>
+                  <span id="rfq-weight-pc" class="text-amber-400 font-bold">2.84 g / pc</span>
+                </div>
+                <div class="p-2 bg-slate-950/60 rounded border border-slate-800">
+                  <span class="text-slate-500 block text-[9px] uppercase">WEIGHT / 1,000 PCS</span>
+                  <span id="rfq-weight-thousand" class="text-cyan-400 font-bold">2.84 kg</span>
+                </div>
+              </div>
+
+              <!-- Blueprint Footer Telemetry -->
+              <div class="pt-3 border-t border-cyan-500/30 flex justify-between items-center font-mono text-[10px] text-slate-400">
+                <span>MATERIAL: <strong id="bp-label-material" class="text-white">MILD STEEL</strong></span>
+                <span class="text-emerald-400">DIN 7337 COMPLIANT</span>
+              </div>
+            </div>
+
+            <!-- Engineering Contact Callout -->
+            <div class="p-4 bg-slate-900 border border-slate-800 rounded text-xs space-y-2">
+              <span class="text-slate-400 block font-mono">TECHNICAL SUPPORT LINE:</span>
+              <p class="text-slate-200">
+                Need CAD 3D STEP files or custom tooling consultation? Call our senior engineers directly at 
+                <a href="tel:+919047077874" class="text-amber-400 font-bold hover:underline font-mono">+91 (904) 707-7874</a> 
+                or email <a href="mailto:marketing@srivenkateswaracompany.in" class="text-amber-400 underline font-mono">marketing@srivenkateswaracompany.in</a>.
+              </p>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6 md:px-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Sri Venkateswara Company. Coimbatore, India.</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="products.html" class="hover:text-amber-400">Products</a>
+        <a href="services.html" class="hover:text-amber-400">Manufacturing</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/motion-effects.js"></script>
+  <script src="assets/js/rfq-calculator.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // Read URL query parameters to pre-fill spec
+      const urlParams = new URLSearchParams(window.location.search);
+      const typeParam = urlParams.get('type');
+      const headParam = urlParams.get('head');
+      const matParam = urlParams.get('mat');
+
+      if (typeParam) {
+        const typeSelect = document.getElementById('rfq-rivet-type');
+        for (let opt of typeSelect.options) {
+          if (opt.value.toLowerCase().includes(typeParam.toLowerCase())) {
+            typeSelect.value = opt.value;
+            break;
+          }
+        }
+      }
+
+      if (headParam) {
+        const headSelect = document.getElementById('rfq-head-type');
+        for (let opt of headSelect.options) {
+          if (opt.value.toLowerCase().includes(headParam.toLowerCase())) {
+            headSelect.value = opt.value;
+            break;
+          }
+        }
+      }
+
+      if (matParam) {
+        const matSelect = document.getElementById('rfq-material');
+        for (let opt of matSelect.options) {
+          if (opt.value.toLowerCase().includes(matParam.toLowerCase())) {
+            matSelect.value = opt.value;
+            break;
+          }
+        }
+      }
+
+      // Trigger change event to redraw blueprint
+      const typeSelect = document.getElementById('rfq-rivet-type');
+      if (typeSelect) typeSelect.dispatchEvent(new Event('change'));
+    });
+  </script>
+</body>
+</html>
+

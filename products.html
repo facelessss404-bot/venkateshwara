@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fastener Products & 3D Interactive Catalog | Sri Venkateswara Company</title>
+  <meta name="description" content="Explore SVC's complete range of precision cold-forged solid, semi-tubular, and tubular rivets with our real-time interactive 3D configurator. Brass, copper, steel, and aluminum fasteners.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Request a Quote</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-amber-400 font-bold">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <a href="rfq.html" class="btn-industrial w-full justify-center">
+        <span>Request Technical Quote</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="pt-24">
+    <!-- =========================================================================
+         PAGE HERO
+         ========================================================================= -->
+    <section class="py-16 bg-industrial-grid border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-3xl">
+          <span class="hud-tag text-amber-400 mb-3">18 VERIFIED FASTENER ARCHITECTURES</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight mb-4">
+            Industrial Rivet Catalog & Interactive 3D Studio
+          </h1>
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+            Examine our high-precision cold-forged rivets across Solid, Semi-Tubular, and Tubular classifications. Orbit 360°, switch metallurgical alloys, inspect longitudinal cross-sections, and configure custom dimensional quotes.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         INTERACTIVE 3D WEBGL PRODUCT STUDIO
+         ========================================================================= -->
+    <section class="py-16 bg-surface-primary border-b border-slate-800 relative">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+          
+          <!-- 3D Canvas Box -->
+          <div class="lg:col-span-8 bg-slate-950 border border-slate-800 rounded-lg p-3 shadow-2xl relative">
+            <div class="absolute top-4 left-4 z-20 flex items-center gap-2">
+              <span class="hud-tag cyan">WEBGL LATHE RECONSTRUCTION</span>
+              <span id="studio-material-badge" class="px-2 py-0.5 bg-slate-900 border border-slate-700 text-amber-400 font-mono text-[10px] rounded">BRASS C360</span>
+            </div>
+
+            <div class="absolute top-4 right-4 z-20 flex gap-1.5">
+              <button id="studio-wf-btn" class="px-2.5 py-1 text-xs font-mono bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 transition-colors">
+                [ CAD WIREFRAME ]
+              </button>
+              <button id="studio-cut-btn" class="px-2.5 py-1 text-xs font-mono bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 transition-colors">
+                [ CUTAWAY SECTION ]
+              </button>
+            </div>
+
+            <!-- Canvas Container -->
+            <div id="product-studio-canvas" class="w-full h-[420px] sm:h-[480px] rounded cursor-grab active:cursor-grabbing"></div>
+
+            <div class="p-3 bg-slate-900/90 border-t border-slate-800 flex flex-wrap justify-between items-center gap-4 text-xs font-mono">
+              <span class="text-slate-400">Drag to inspect 360° • Scroll/Pinch to zoom • Longitudinal slice enabled</span>
+              <span class="text-amber-400 font-bold">ACCURACY: ±0.02 mm</span>
+            </div>
+          </div>
+
+          <!-- Studio Parameter Controls -->
+          <div class="lg:col-span-4 space-y-6 bg-slate-900/60 p-6 border border-slate-800 rounded-lg">
+            <div>
+              <span class="hud-tag text-xs mb-1">PARAMETRIC CONTROLS</span>
+              <h3 class="font-display font-bold text-xl text-white">Component Specifier</h3>
+            </div>
+
+            <!-- Rivet Family Selection -->
+            <div>
+              <label class="block text-xs font-mono text-slate-400 uppercase mb-2">1. Rivet Architecture</label>
+              <div class="grid grid-cols-3 gap-2" id="studio-type-selector">
+                <button data-type="solid" class="px-3 py-2 text-xs font-mono bg-amber-500 text-black font-bold rounded border border-amber-400 transition-colors text-center">
+                  Solid
+                </button>
+                <button data-type="semi-tubular" class="px-3 py-2 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 rounded border border-slate-700 transition-colors text-center">
+                  Semi-Tube
+                </button>
+                <button data-type="tubular" class="px-3 py-2 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 rounded border border-slate-700 transition-colors text-center">
+                  Tubular
+                </button>
+              </div>
+            </div>
+
+            <!-- Head Style Selection -->
+            <div>
+              <label class="block text-xs font-mono text-slate-400 uppercase mb-2">2. Head Geometry</label>
+              <div class="grid grid-cols-2 gap-2" id="studio-head-selector">
+                <button data-head="round" class="px-3 py-2 text-xs font-mono bg-amber-500/20 text-amber-400 border border-amber-500/40 rounded text-center">
+                  Round Head
+                </button>
+                <button data-head="mushroom" class="px-3 py-2 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">
+                  Mushroom
+                </button>
+                <button data-head="flat" class="px-3 py-2 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">
+                  Flat Head
+                </button>
+                <button data-head="dimple" class="px-3 py-2 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">
+                  Dimple Head
+                </button>
+              </div>
+            </div>
+
+            <!-- Metallurgical Alloy Selection -->
+            <div>
+              <label class="block text-xs font-mono text-slate-400 uppercase mb-2">3. Metallurgical Material</label>
+              <div class="grid grid-cols-3 gap-2" id="studio-material-grid">
+                <button data-mat="brass" class="px-2 py-1.5 text-xs font-mono bg-amber-500/10 text-amber-400 border border-amber-500/40 rounded text-center">Brass</button>
+                <button data-mat="copper" class="px-2 py-1.5 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">Copper</button>
+                <button data-mat="stainless" class="px-2 py-1.5 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">Stainless</button>
+                <button data-mat="mild_steel" class="px-2 py-1.5 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">Mild Steel</button>
+                <button data-mat="zinc" class="px-2 py-1.5 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">Zinc Plated</button>
+                <button data-mat="aluminum" class="px-2 py-1.5 text-xs font-mono bg-slate-800 text-slate-300 hover:bg-slate-700 border border-slate-700 rounded text-center">Aluminum</button>
+              </div>
+            </div>
+
+            <div class="pt-4 border-t border-slate-800">
+              <a href="rfq.html" class="btn-industrial w-full justify-center text-xs">
+                <span>Request Quotation for this Spec</span>
+                <i data-lucide="calculator" class="w-4 h-4"></i>
+              </a>
+            </div>
+
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         ALL 18 FASTENER MODELS BY CATEGORY
+         ========================================================================= -->
+    <section class="py-20 bg-void">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 space-y-24">
+        
+        <!-- SECTION 1: SOLID RIVETS -->
+        <div id="solid" class="scroll-mt-28">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8">
+            <div>
+              <span class="hud-tag mb-1">FAMILY 01</span>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Solid Fastener Catalog</h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400">HIGH-SHEAR STRUCTURAL BONDING</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Solid 1 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/Brass%20Round%20head.jpg" alt="Brass Round Head Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-amber-400 block mb-1">ALLOY: BRASS IS 319 / C360</span>
+              <h3 class="font-display font-bold text-white text-base">Brass Round Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">High decorative luster with corrosion resistance. Widely specified in consumer electrical appliances and architectural hardware.</p>
+              <a href="rfq.html?type=Solid&head=Round&mat=Brass" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <!-- Solid 2 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/Copper%20Mushroom%20Head.jpg" alt="Copper Mushroom Head Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-orange-400 block mb-1">ALLOY: ELECTROLYTIC COPPER C110</span>
+              <h3 class="font-display font-bold text-white text-base">Copper Mushroom Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Low profile rounded dome providing high electrical conductivity and excellent thermal dissipation in contact blocks.</p>
+              <a href="rfq.html?type=Solid&head=Mushroom&mat=Copper" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <!-- Solid 3 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/MS%20Dimple%20head.jpg" alt="MS Dimple Head Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-cyan-400 block mb-1">ALLOY: MILD STEEL C1008/C1010</span>
+              <h3 class="font-display font-bold text-white text-base">MS Dimple Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Features a concave centering dimple on the head to guide robotic riveting punches during automated high-speed clinching.</p>
+              <a href="rfq.html?type=Solid&head=Dimple&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <!-- Solid 4 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/MS%20Knurled%20Shank.jpg" alt="MS Knurled Shank Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: HIGH-CARBON MS</span>
+              <h3 class="font-display font-bold text-white text-base">MS Knurled Shank</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Diamond or straight knurled shank surface creates anti-rotational grip when pressed into plastic housings or aluminum castings.</p>
+              <a href="rfq.html?type=Solid&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <!-- Solid 5 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/MS%20Step%20Head.jpg" alt="MS Step Head Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: COLD FORGED MS</span>
+              <h3 class="font-display font-bold text-white text-base">MS Step Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Dual-tiered head shoulder designed to locate recessed mechanical collars or provide precise clearance stops.</p>
+              <a href="rfq.html?type=Solid&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <!-- Solid 6 -->
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/solid/MS%20Step%20Shank.jpg" alt="MS Step Shank Solid Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: FORGING STEEL</span>
+              <h3 class="font-display font-bold text-white text-base">MS Step Shank</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Precision stepped shank allows the rivet to act as a pivot axle or bearing post while the secondary diameter clinches tightly.</p>
+              <a href="rfq.html?type=Solid&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION 2: SEMI-TUBULAR RIVETS -->
+        <div id="semi-tubular" class="scroll-mt-28">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8">
+            <div>
+              <span class="hud-tag cyan mb-1">FAMILY 02</span>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Semi-Tubular Fastener Catalog</h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400">CONTROLLED CLINCH FORCE (50% LOWER LOAD)</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/Brass%20Mushroom%20Head.jpg" alt="Brass Mushroom Head Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-amber-400 block mb-1">ALLOY: BRASS IS 319</span>
+              <h3 class="font-display font-bold text-white text-base">Brass Mushroom Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Low profile dome with hollow tip. Widely used in leather goods, luggage, and sensitive electrical enclosures.</p>
+              <a href="rfq.html?type=Semi-Tubular&head=Mushroom&mat=Brass" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/Copper%20Flat%20Head.jpg" alt="Copper Flat Head Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-orange-400 block mb-1">ALLOY: COPPER C110</span>
+              <h3 class="font-display font-bold text-white text-base">Copper Flat Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Flat head profile with tubular tip for rapid roll-clinching on electrical busbars and automotive circuit boards.</p>
+              <a href="rfq.html?type=Semi-Tubular&head=Flat&mat=Copper" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/MS%20Double%20Shank.jpg" alt="MS Double Shank Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-cyan-400 block mb-1">ALLOY: MILD STEEL</span>
+              <h3 class="font-display font-bold text-white text-base">MS Double Shank</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Engineered dual-diameter shank tailored for multi-layered sheet metal fastening where shoulder stops are required.</p>
+              <a href="rfq.html?type=Semi-Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/MS%20Flat%20Head.jpg" alt="MS Flat Head Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: MILD STEEL C1010</span>
+              <h3 class="font-display font-bold text-white text-base">MS Flat Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Universal flat head design. Clean aesthetic seated surface with high pull-through resistance under tension.</p>
+              <a href="rfq.html?type=Semi-Tubular&head=Flat&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/MS%20Hexgonal%20Head.jpg" alt="MS Hexagonal Head Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: FORGING STEEL</span>
+              <h3 class="font-display font-bold text-white text-base">MS Hexagonal Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Hexagonal head geometry locks positively into punched hex recesses, eliminating head spin during automated spin-riveting.</p>
+              <a href="rfq.html?type=Semi-Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/semi-tubular/SS%20Flat%20Head.jpg" alt="SS Flat Head Semi-Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-emerald-400 block mb-1">ALLOY: STAINLESS STEEL 304</span>
+              <h3 class="font-display font-bold text-white text-base">SS Flat Head</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Corrosion-resistant austenitic stainless steel. Ideal for cookware handles, marine hardware, and food equipment.</p>
+              <a href="rfq.html?type=Semi-Tubular&head=Flat&mat=StainlessSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SECTION 3: TUBULAR RIVETS -->
+        <div id="tubular" class="scroll-mt-28">
+          <div class="flex items-center justify-between pb-4 border-b border-slate-800 mb-8">
+            <div>
+              <span class="hud-tag green mb-1">FAMILY 03</span>
+              <h2 class="font-display font-bold text-2xl sm:text-3xl text-white">Full Tubular Fastener Catalog</h2>
+            </div>
+            <span class="text-xs font-mono text-slate-400">DEEP HOLLOW CAVITY • ROLL-FORM CLAMPING</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/Brass%20Flat%20Head.jpg" alt="Brass Flat Head Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-amber-400 block mb-1">ALLOY: BRASS</span>
+              <h3 class="font-display font-bold text-white text-base">Brass Flat Head Tubular</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Clean flush mounting with hollow shank. Excellent for electrical terminal connections and decorative fittings.</p>
+              <a href="rfq.html?type=Tubular&head=Flat&mat=Brass" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/Brass%20Tubular.jpg" alt="Brass Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-amber-400 block mb-1">ALLOY: BRASS C360</span>
+              <h3 class="font-display font-bold text-white text-base">Brass Tubular Eyelet</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Deep tubular core for easy roll-over forming. Used in printed circuit boards and canvas/textile reinforcements.</p>
+              <a href="rfq.html?type=Tubular&mat=Brass" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/MS%20Button%20Rivet.jpg" alt="MS Button Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-cyan-400 block mb-1">ALLOY: MILD STEEL</span>
+              <h3 class="font-display font-bold text-white text-base">MS Button Rivet</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Low-profile button head with tubular shank, minimizing snag points on brake shoes and industrial clutch discs.</p>
+              <a href="rfq.html?type=Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/MS%20Counter%20Sink.jpg" alt="MS Countersunk Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: COLD HEADING MS</span>
+              <h3 class="font-display font-bold text-white text-base">MS Countersink Rivet</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Beveled 90° or 120° countersunk head fits completely flush inside pre-drilled holes for smooth aerodynamic finishes.</p>
+              <a href="rfq.html?type=Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/MS%20Head%20Knurled%20.jpg" alt="MS Head Knurled Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: HIGH-STRENGTH MS</span>
+              <h3 class="font-display font-bold text-white text-base">MS Head Knurled</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Knurling formed directly onto the underside of the head prevents slippage when clamping soft fibrous materials.</p>
+              <a href="rfq.html?type=Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+            <div class="card-industrial p-4 group">
+              <div class="h-44 bg-slate-950 rounded overflow-hidden mb-4 border border-slate-800">
+                <img src="https://srivenkateswaracompany.com/images/tubular/MS%20Step%20Rivet.jpg" alt="MS Step Tubular Rivet" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              </div>
+              <span class="text-[10px] font-mono text-slate-400 block mb-1">ALLOY: SPECIAL FORGING MS</span>
+              <h3 class="font-display font-bold text-white text-base">MS Step Tubular</h3>
+              <p class="text-xs text-slate-400 mt-1 mb-4">Combines an upper solid step with a hollow tubular clinch tip, allowing rotational freedom for hinged mechanisms.</p>
+              <a href="rfq.html?type=Tubular&mat=MildSteel" class="btn-secondary w-full text-xs justify-center">Quote This Model</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6 md:px-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Sri Venkateswara Company. Coimbatore, India.</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="services.html" class="hover:text-amber-400">Manufacturing</a>
+        <a href="rfq.html" class="hover:text-amber-400">Request Quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/three-rivet-scene.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // Graceful fallback for remote image loading
+      document.querySelectorAll('img').forEach(img => {
+        img.addEventListener('error', function() {
+          this.onerror = null;
+          const title = this.alt || 'SVC Fastener';
+          this.src = `data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="400" height="240" viewBox="0 0 400 240"><rect width="400" height="240" fill="%23020617"/><circle cx="200" cy="100" r="40" fill="%23f59e0b" opacity="0.15"/><path d="M170 80 Q200 65 230 80 L220 150 L180 150 Z" fill="%23f59e0b" stroke="%23fbbf24" stroke-width="2"/><text x="200" y="195" font-family="monospace" font-size="12" fill="%2394a3b8" text-anchor="middle">${encodeURIComponent(title)}</text><text x="200" y="215" font-family="monospace" font-size="10" fill="%2364748b" text-anchor="middle">PRECISION COLD FORGED COMPONENT</text></svg>`;
+        });
+      });
+
+      const studioViewer = new SVCRivetViewer('product-studio-canvas', {
+        rivetType: 'solid',
+        headType: 'round',
+        materialKey: 'brass',
+        autoRotate: true,
+        cameraDistance: 60
+      });
+
+      // Type Selector
+      document.querySelectorAll('#studio-type-selector button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const type = e.currentTarget.getAttribute('data-type');
+          studioViewer.setRivetType(type);
+          document.querySelectorAll('#studio-type-selector button').forEach(b => {
+            b.classList.remove('bg-amber-500', 'text-black', 'font-bold', 'border-amber-400');
+            b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+          });
+          e.currentTarget.classList.add('bg-amber-500', 'text-black', 'font-bold', 'border-amber-400');
+          e.currentTarget.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        });
+      });
+
+      // Head Selector
+      document.querySelectorAll('#studio-head-selector button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const head = e.currentTarget.getAttribute('data-head');
+          studioViewer.setHeadType(head);
+          document.querySelectorAll('#studio-head-selector button').forEach(b => {
+            b.classList.remove('bg-amber-500/20', 'text-amber-400', 'border-amber-500/40');
+            b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+          });
+          e.currentTarget.classList.add('bg-amber-500/20', 'text-amber-400', 'border-amber-500/40');
+          e.currentTarget.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        });
+      });
+
+      // Material Selector
+      document.querySelectorAll('#studio-material-grid button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const mat = e.currentTarget.getAttribute('data-mat');
+          studioViewer.setMaterial(mat);
+          document.getElementById('studio-material-badge').textContent = mat.toUpperCase();
+          document.querySelectorAll('#studio-material-grid button').forEach(b => {
+            b.classList.remove('bg-amber-500/10', 'text-amber-400', 'border-amber-500/40');
+            b.classList.add('bg-slate-800', 'text-slate-300', 'border-slate-700');
+          });
+          e.currentTarget.classList.add('bg-amber-500/10', 'text-amber-400', 'border-amber-500/40');
+          e.currentTarget.classList.remove('bg-slate-800', 'text-slate-300', 'border-slate-700');
+        });
+      });
+
+      // Wireframe
+      const wfBtn = document.getElementById('studio-wf-btn');
+      if (wfBtn) {
+        wfBtn.addEventListener('click', () => {
+          const isWf = studioViewer.toggleWireframe();
+          wfBtn.classList.toggle('bg-amber-600', isWf);
+          wfBtn.classList.toggle('text-white', isWf);
+        });
+      }
+
+      // Cutaway
+      const cutBtn = document.getElementById('studio-cut-btn');
+      if (cutBtn) {
+        cutBtn.addEventListener('click', () => {
+          const isCut = studioViewer.toggleCutaway();
+          cutBtn.classList.toggle('bg-cyan-600', isCut);
+          cutBtn.classList.toggle('text-white', isCut);
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+

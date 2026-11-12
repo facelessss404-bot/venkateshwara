@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant & Fastener Gallery | Sri Venkateswara Company — Coimbatore Facility</title>
+  <meta name="description" content="View photography of Sri Venkateswara Company's cold heading machinery, annealing furnaces, 80-tonne automated plating plant, and finished precision rivets in Coimbatore.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Request a Quote</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-amber-400 font-bold">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <a href="rfq.html" class="btn-industrial w-full justify-center">
+        <span>Request Technical Quote</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="py-16 bg-industrial-grid border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-3xl">
+          <span class="hud-tag text-amber-400 mb-3">COIMBATORE MANUFACTURING PLANT</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight mb-4">
+            Industrial Facility & Fastener Gallery
+          </h1>
+          <p class="text-slate-300 text-lg leading-relaxed">
+            Examine high-resolution photography of our cold heading production lines, annealing thermal furnaces, 80-tonne automated plating baths, and finished precision rivets.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- GALLERY SECTION -->
+    <section class="py-16 bg-void">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <!-- Filter Tabs -->
+        <div class="flex flex-wrap gap-2 mb-12 border-b border-slate-800 pb-4 font-mono text-xs" id="gallery-filters">
+          <button data-filter="all" class="px-4 py-2 bg-amber-500 text-black font-bold rounded">All Photography (14)</button>
+          <button data-filter="machinery" class="px-4 py-2 bg-slate-900 text-slate-300 hover:bg-slate-800 rounded">Machinery & Heading Bays</button>
+          <button data-filter="products" class="px-4 py-2 bg-slate-900 text-slate-300 hover:bg-slate-800 rounded">Finished Fastener Batches</button>
+          <button data-filter="processing" class="px-4 py-2 bg-slate-900 text-slate-300 hover:bg-slate-800 rounded">Plating & Thermal Plant</button>
+        </div>
+
+        <!-- Grid Container -->
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+          
+          <!-- Image 1 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/1.jpg"
+               data-lightbox-title="Cold Heading Machine Bay 01"
+               data-lightbox-desc="High-speed multi-station cold heading machine forging precision solid blanks in Coimbatore.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/1.jpg" alt="Cold Heading Machine Bay" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Cold Heading Machine</span>
+              <span class="text-slate-500">BAY-01</span>
+            </div>
+          </div>
+
+          <!-- Image 2 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/2.jpg"
+               data-lightbox-title="Wire Feed & Tooling Alignment"
+               data-lightbox-desc="Automated wire straightening and cut-off mechanism feeding high-tensile wire rod into carbide heading dies.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/2.jpg" alt="Wire Feed Mechanism" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Wire Feed & Tooling</span>
+              <span class="text-slate-500">BAY-02</span>
+            </div>
+          </div>
+
+          <!-- Image 3 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/3.jpg"
+               data-lightbox-title="High-Velocity Punch Station"
+               data-lightbox-desc="Precision punch forming the rivet head with controlled stroke velocity to preserve crystalline metallurgical structure.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/3.jpg" alt="Punch Station" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Punch Station</span>
+              <span class="text-slate-500">BAY-03</span>
+            </div>
+          </div>
+
+          <!-- Image 4 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/4.jpg"
+               data-lightbox-title="Secondary Die Extrusion Bay"
+               data-lightbox-desc="Extrusion punch station producing deep cavity tubular rivets with uniform shank wall thickness.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/4.jpg" alt="Secondary Die Station" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Tubular Extrusion Bay</span>
+              <span class="text-slate-500">BAY-04</span>
+            </div>
+          </div>
+
+          <!-- Image 5 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/5.jpg"
+               data-lightbox-title="Automated Part Ejection System"
+               data-lightbox-desc="Pneumatically timed component ejection conveyor sorting formed rivets into clean inspection totes.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/5.jpg" alt="Ejection Conveyor" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Ejection Conveyor</span>
+              <span class="text-slate-500">BAY-05</span>
+            </div>
+          </div>
+
+          <!-- Image 6 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="machinery"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/6.jpg"
+               data-lightbox-title="Inspection Sorting Line"
+               data-lightbox-desc="Optical roller sorting and sampling line checking head concentricity and shank straightness.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/6.jpg" alt="Sorting Line" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-amber-400">MACHINERY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Inspection Sorting</span>
+              <span class="text-slate-500">BAY-06</span>
+            </div>
+          </div>
+
+          <!-- Image 7: Copper Batch 1 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/copper-1.jpg"
+               data-lightbox-title="Electrolytic Copper Solid Rivets"
+               data-lightbox-desc="Pure copper C110 electrical contact rivets with high electrical conductivity and mushroom head geometry.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/copper-1.jpg" alt="Copper Rivets Batch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Copper Contact Rivets</span>
+              <span class="text-slate-500">C110 ALLOY</span>
+            </div>
+          </div>
+
+          <!-- Image 8: Copper Batch 2 -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/copper-2.jpg"
+               data-lightbox-title="Flat Head Copper Fasteners"
+               data-lightbox-desc="High-density flat head copper fasteners designed for switchgear busbar assembly.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/copper-2.jpg" alt="Copper Fasteners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Flat Head Copper</span>
+              <span class="text-slate-500">BATCH-CU2</span>
+            </div>
+          </div>
+
+          <!-- Image 9: Brass Batch -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/brass.jpg"
+               data-lightbox-title="IS 319 / C360 Brass Fasteners"
+               data-lightbox-desc="Precision machined and cold-headed brass rivets with clean chamfered shanks for electrical meters.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/brass.jpg" alt="Brass Fasteners Batch" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Brass Rivet Batch</span>
+              <span class="text-slate-500">IS 319 ALLOY</span>
+            </div>
+          </div>
+
+          <!-- Image 10: Mild Steel Batch -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/ms.jpg"
+               data-lightbox-title="Mild Steel Cold-Forged Rivets"
+               data-lightbox-desc="C1008/C1010 high-ductility mild steel rivets manufactured for automotive brake linings.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/ms.jpg" alt="Mild Steel Rivets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Mild Steel Fasteners</span>
+              <span class="text-slate-500">MS C1008</span>
+            </div>
+          </div>
+
+          <!-- Image 11: Stainless Steel Batch -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/ss.jpg"
+               data-lightbox-title="Stainless Steel 304 Fasteners"
+               data-lightbox-desc="Austenitic stainless steel cold-headed rivets for commercial cookware handles and food appliances.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/ss.jpg" alt="Stainless Steel Fasteners" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Stainless Steel 304</span>
+              <span class="text-slate-500">SS GRADE</span>
+            </div>
+          </div>
+
+          <!-- Image 12: Zinc Plated Batch -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="products"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/zinc.jpg"
+               data-lightbox-title="Electro-Galvanized Zinc Fasteners"
+               data-lightbox-desc="Zinc electroplated tubular rivets with trivalent passivated surface for salt-spray rust prevention.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/zinc.jpg" alt="Zinc Plated Rivets" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-cyan-400">PRODUCT</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Zinc Electroplated</span>
+              <span class="text-slate-500">80T IN-HOUSE</span>
+            </div>
+          </div>
+
+          <!-- Image 13: 80T Plating Facility -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="processing"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/services/plating.jpeg"
+               data-lightbox-title="Automated 80-Tonne Plating Plant"
+               data-lightbox-desc="Multi-station automated barrel electroplating lines providing zinc, nickel, copper, and tin finishes.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/services/plating.jpeg" alt="Plating Plant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-400">FACILITY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">80T Plating Line</span>
+              <span class="text-slate-500">AUTOMATED</span>
+            </div>
+          </div>
+
+          <!-- Image 14: Facility Exterior & Entrance -->
+          <div class="card-industrial p-3 group cursor-pointer gallery-card" data-category="processing"
+               data-lightbox-src="https://srivenkateswaracompany.com/images/gallery/our.jpg"
+               data-lightbox-title="Coimbatore Plant Facility"
+               data-lightbox-desc="Sri Venkateswara Company manufacturing headquarters at Periyanaickenpalayam, Coimbatore.">
+            <div class="h-60 bg-slate-950 rounded overflow-hidden relative border border-slate-800">
+              <img src="https://srivenkateswaracompany.com/images/gallery/our.jpg" alt="SVC Manufacturing Plant" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" loading="lazy">
+              <div class="absolute bottom-2 left-2 bg-slate-950/80 px-2 py-0.5 rounded text-[10px] font-mono text-emerald-400">FACILITY</div>
+            </div>
+            <div class="pt-3 flex justify-between items-center text-xs font-mono">
+              <span class="text-white font-bold">Manufacturing Plant</span>
+              <span class="text-slate-500">COIMBATORE</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6 md:px-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Sri Venkateswara Company. Coimbatore, India.</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="products.html" class="hover:text-amber-400">Products</a>
+        <a href="rfq.html" class="hover:text-amber-400">Request Quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/motion-effects.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // Gallery Filter Logic
+      const filterButtons = document.querySelectorAll('#gallery-filters button');
+      const cards = document.querySelectorAll('.gallery-card');
+
+      filterButtons.forEach(btn => {
+        btn.addEventListener('click', () => {
+          const filter = btn.getAttribute('data-filter');
+
+          filterButtons.forEach(b => {
+            b.classList.remove('bg-amber-500', 'text-black', 'font-bold');
+            b.classList.add('bg-slate-900', 'text-slate-300');
+          });
+          btn.classList.add('bg-amber-500', 'text-black', 'font-bold');
+          btn.classList.remove('bg-slate-900', 'text-slate-300');
+
+          cards.forEach(card => {
+            const cat = card.getAttribute('data-category');
+            if (filter === 'all' || cat === filter) {
+              card.classList.remove('hidden');
+            } else {
+              card.classList.add('hidden');
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+</html>
+

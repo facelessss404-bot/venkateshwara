@@ -1,0 +1,986 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sri Venkateswara Company | Precision Cold-Forged Rivets & Fasteners</title>
+  <meta name="description" content="Sri Venkateswara Company (SVC) is an established manufacturer and exporter of cold-forged solid, semi-tubular, and tubular industrial rivets since 1964. Coimbatore, India. IATF 16949:2016 certified.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Three.js & GSAP -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- =========================================================================
+       1. NAVIGATION HEADER
+       ========================================================================= -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      
+      <!-- Logo -->
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <!-- Desktop Nav -->
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <!-- Right Action -->
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Request a Quote</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <!-- Mobile Hamburger -->
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <div class="flex items-center gap-2">
+        <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      </div>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-amber-400 font-bold">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <a href="rfq.html" class="btn-industrial w-full justify-center">
+        <span>Request Technical Quote</span>
+      </a>
+    </div>
+  </div>
+
+  <main>
+    <!-- =========================================================================
+         2. HERO SECTION WITH INTERACTIVE 3D WEBGL RIVET
+         ========================================================================= -->
+    <section class="hero-section relative min-h-screen flex items-center pt-24 pb-16 overflow-hidden bg-industrial-grid">
+      <!-- Ambient Lighting Glows -->
+      <div class="absolute top-1/4 left-1/4 w-96 h-96 ambient-glow-bronze pointer-events-none"></div>
+      <div class="absolute bottom-1/4 right-1/4 w-96 h-96 ambient-glow-cyan pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-12 w-full relative z-10 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        
+        <!-- Hero Text & Value Proposition -->
+        <div class="lg:col-span-7 hero-parallax-target flex flex-col items-start">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-sm mb-6">
+            <span class="w-2 h-2 rounded-full bg-amber-400 animate-pulse"></span>
+            <span class="hud-tag text-amber-400">PRECISION FASTENER MANUFACTURERS & EXPORTERS</span>
+          </div>
+
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl lg:text-6xl text-white tracking-tight leading-[1.08] mb-6">
+            ENGINEERED FOR <span class="text-transparent bg-clip-text bg-gradient-to-r from-amber-400 to-amber-600">PRECISION.</span><br>
+            BUILT TO <span class="text-white">PERFORM.</span>
+          </h1>
+
+          <p class="text-slate-300 text-base sm:text-lg max-w-xl font-normal leading-relaxed mb-8">
+            High-tolerance cold-forged solid, semi-tubular, and tubular rivets crafted in Coimbatore since 1964. Supplying automotive OEMs, appliance leaders, and defense hardware across the globe.
+          </p>
+
+          <div class="flex flex-wrap items-center gap-4 w-full sm:w-auto">
+            <a href="rfq.html" class="btn-industrial text-sm px-7 py-4 chamfer-sm shadow-xl shadow-amber-900/20">
+              <span>Configure & Request Quote</span>
+              <i data-lucide="calculator" class="w-4 h-4"></i>
+            </a>
+            <a href="products.html" class="btn-secondary text-sm px-6 py-4 chamfer-sm">
+              <span>Explore 3D Catalog</span>
+              <i data-lucide="box" class="w-4 h-4 text-amber-400"></i>
+            </a>
+          </div>
+
+          <!-- Micro Technical Telemetry Strip -->
+          <div class="mt-12 pt-6 border-t border-slate-800/80 w-full grid grid-cols-3 gap-4 font-mono text-xs text-slate-400">
+            <div>
+              <span class="text-slate-500 block text-[10px]">TOLERANCE SPEC</span>
+              <span class="text-slate-200 font-bold">± 0.02 mm</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px]">PLATING CAPACITY</span>
+              <span class="text-slate-200 font-bold">80 Tonnes / In-House</span>
+            </div>
+            <div>
+              <span class="text-slate-500 block text-[10px]">QUALITY SYSTEM</span>
+              <span class="text-emerald-400 font-bold">IATF 16949:2016</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hero 3D Rivet Viewport -->
+        <div class="lg:col-span-5 relative">
+          <div class="relative w-full aspect-square max-w-md mx-auto bg-gradient-to-b from-slate-900/80 to-slate-950/90 border border-slate-800 rounded-lg p-2 shadow-2xl backdrop-blur-sm">
+            
+            <!-- 3D Viewport Header Controls -->
+            <div class="absolute top-4 left-4 right-4 z-20 flex items-center justify-between pointer-events-none">
+              <span class="hud-tag cyan">INTERACTIVE 3D COMPONENT</span>
+              <div class="pointer-events-auto flex gap-1">
+                <button id="hero-wireframe-btn" class="px-2 py-1 text-[10px] font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700" title="Toggle CAD Wireframe">
+                  CAD
+                </button>
+                <button id="hero-cutaway-btn" class="px-2 py-1 text-[10px] font-mono bg-slate-800 hover:bg-slate-700 text-slate-300 rounded border border-slate-700" title="Longitudinal Cutaway">
+                  SECTION
+                </button>
+              </div>
+            </div>
+
+            <!-- Three.js Canvas Container -->
+            <div id="hero-rivet-canvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded"></div>
+
+            <!-- Material Selection Strip at Bottom of 3D Canvas -->
+            <div class="absolute bottom-4 left-4 right-4 z-20 flex items-center justify-between bg-slate-950/80 p-2 rounded border border-slate-800/80 backdrop-blur-sm">
+              <span class="font-mono text-[10px] text-slate-400">MATERIAL:</span>
+              <div class="flex gap-1.5" id="hero-material-selector">
+                <button data-mat="brass" class="w-5 h-5 rounded-full bg-amber-400 border-2 border-white/80 hover:scale-110 transition-transform" title="Brass C360"></button>
+                <button data-mat="copper" class="w-5 h-5 rounded-full bg-orange-600 border border-transparent hover:scale-110 transition-transform" title="Copper C110"></button>
+                <button data-mat="stainless" class="w-5 h-5 rounded-full bg-slate-200 border border-transparent hover:scale-110 transition-transform" title="Stainless Steel 304"></button>
+                <button data-mat="mild_steel" class="w-5 h-5 rounded-full bg-slate-500 border border-transparent hover:scale-110 transition-transform" title="Mild Steel"></button>
+              </div>
+            </div>
+
+            <!-- Rotation Hint -->
+            <div class="absolute -bottom-8 left-0 right-0 text-center pointer-events-none">
+              <span class="text-[11px] font-mono text-slate-500">‹ Drag to rotate 360° • Switch materials ›</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         3. CREDIBILITY TELEMETRY & VERIFICATION TRANSPARENCY
+         ========================================================================= -->
+    <section class="py-12 bg-surface-primary border-y border-slate-800/80 relative">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+          
+          <!-- Years of Heritage -->
+          <div class="flex flex-col border-l-2 border-amber-500 pl-4">
+            <div class="flex items-baseline gap-1">
+              <span class="font-display font-extrabold text-3xl sm:text-4xl text-white" data-counter-target="60" data-counter-suffix="+">60+</span>
+            </div>
+            <span class="font-display text-sm font-semibold text-slate-300 mt-1">Years of Travel</span>
+            <span class="font-mono text-[11px] text-slate-500">Founded 1964 in Karakudi</span>
+          </div>
+
+          <!-- Skilled Technicians -->
+          <div class="flex flex-col border-l-2 border-slate-700 pl-4">
+            <div class="flex items-baseline gap-1">
+              <span class="font-display font-extrabold text-3xl sm:text-4xl text-white" data-counter-target="100" data-counter-suffix="+">100+</span>
+            </div>
+            <span class="font-display text-sm font-semibold text-slate-300 mt-1">Skilled Workforce</span>
+            <div class="flex items-center gap-1 mt-1">
+              <span class="verification-flag text-[9px]">ACTIVE VERIFY</span>
+            </div>
+          </div>
+
+          <!-- Customer Network -->
+          <div class="flex flex-col border-l-2 border-slate-700 pl-4">
+            <div class="flex items-baseline gap-1">
+              <span class="font-display font-extrabold text-3xl sm:text-4xl text-white" data-counter-target="200" data-counter-suffix="+">200+</span>
+            </div>
+            <span class="font-display text-sm font-semibold text-slate-300 mt-1">OEM Customers</span>
+            <div class="flex items-center gap-1 mt-1">
+              <span class="verification-flag text-[9px]" title="Site data lists 50+ on Home and 200+ on About. Flagged for final client confirmation.">50+ to 200+ RECORDED</span>
+            </div>
+          </div>
+
+          <!-- In-House Automated Plating -->
+          <div class="flex flex-col border-l-2 border-amber-500 pl-4">
+            <div class="flex items-baseline gap-1">
+              <span class="font-display font-extrabold text-3xl sm:text-4xl text-white" data-counter-target="80" data-counter-suffix="T">80T</span>
+            </div>
+            <span class="font-display text-sm font-semibold text-slate-300 mt-1">In-House Plating</span>
+            <span class="font-mono text-[11px] text-slate-500">Fully Automated Plant</span>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         4. CORE PRODUCT DISCOVERY — INTERACTIVE 18-MODEL ARCHITECTURE SUITE
+         ========================================================================= -->
+    <section id="product-families-discovery" class="py-24 relative bg-void border-t border-slate-800/80">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <!-- Header & Category Switcher -->
+        <div class="flex flex-col lg:flex-row lg:items-end justify-between mb-12 gap-8 border-b border-slate-800/80 pb-8">
+          <div>
+            <div class="inline-flex items-center gap-2 px-3 py-1 bg-amber-500/10 border border-amber-500/20 rounded-sm mb-3">
+              <span class="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span class="hud-tag text-amber-400">18 VERIFIED FASTENER MODELS ACROSS 3 FAMILIES</span>
+            </div>
+            <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight">
+              PRECISION FASTENER FAMILIES
+            </h2>
+            <p class="text-slate-400 text-sm sm:text-base mt-2 max-w-2xl font-normal">
+              Manufactured For Extreme Mechanical Integrity • High-tolerance cold forged solid, semi-tubular, and tubular rivets engineered in Coimbatore.
+            </p>
+          </div>
+
+          <!-- Category Selector Tabs -->
+          <div class="flex flex-wrap items-center gap-2 p-1.5 bg-slate-900/90 border border-slate-800 rounded-lg shrink-0" id="family-tab-group">
+            <button data-family="solid" class="px-4 py-2.5 rounded font-mono text-xs uppercase tracking-wider font-bold transition-all bg-gradient-to-r from-amber-500 to-amber-600 text-black shadow-lg shadow-amber-900/40 border border-amber-400">
+              Solid Rivets (6)
+            </button>
+            <button data-family="semi-tubular" class="px-4 py-2.5 rounded font-mono text-xs uppercase tracking-wider text-slate-400 hover:text-white hover:bg-slate-800/80 transition-all border border-slate-800">
+              Semi-Tubular (6)
+            </button>
+            <button data-family="tubular" class="px-4 py-2.5 rounded font-mono text-xs uppercase tracking-wider text-slate-400 hover:text-white hover:bg-slate-800/80 transition-all border border-slate-800">
+              Full Tubular (6)
+            </button>
+          </div>
+        </div>
+
+        <!-- Master Interactive Grid (Showcase + 6-Model Selector Rail) -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+          
+          <!-- Master Stage: Active Model Spotlight (7 Cols) -->
+          <div class="lg:col-span-7 bg-slate-950 border border-slate-800 rounded-xl p-6 shadow-2xl relative flex flex-col justify-between overflow-hidden">
+            
+            <!-- Top Telemetry & Viewport Toggle -->
+            <div class="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-slate-800/80 mb-6">
+              <div class="flex items-center gap-2">
+                <span id="showcase-family-badge" class="hud-tag text-amber-400">SOLID RIVET // HIGH SHEAR</span>
+                <span id="showcase-alloy-badge" class="px-2 py-0.5 rounded font-mono text-[10px] text-amber-400 bg-amber-500/10 border border-amber-500/30">Brass IS 319 / C360</span>
+                <span id="showcase-din-badge" class="px-2 py-0.5 rounded font-mono text-[10px] text-slate-400 bg-slate-900 border border-slate-800">DIN 660 / ISO 1051</span>
+              </div>
+
+              <!-- Photometric vs 3D CAD Toggle -->
+              <div class="flex items-center gap-1 bg-slate-900 p-1 rounded border border-slate-800">
+                <button id="showcase-view-photo-btn" class="px-3 py-1 font-mono text-xs rounded bg-amber-500 text-black font-bold transition-colors">
+                  [ PHOTO ]
+                </button>
+                <button id="showcase-view-cad-btn" class="px-3 py-1 font-mono text-xs rounded text-slate-400 hover:text-white transition-colors" title="Launch Real-time 3D Lathe Viewer">
+                  [ 3D CAD ]
+                </button>
+              </div>
+            </div>
+
+            <!-- Visual Display Area -->
+            <div class="relative w-full h-72 sm:h-84 md:h-96 rounded-lg overflow-hidden bg-gradient-to-b from-slate-900/60 to-slate-950 border border-slate-800/80 flex items-center justify-center p-4">
+              <!-- Caliper Grid Overlay Background -->
+              <div class="absolute inset-0 bg-industrial-grid-dense opacity-40 pointer-events-none"></div>
+
+              <!-- Mode 1: Photo View -->
+              <div id="showcase-photo-container" class="relative w-full h-full flex items-center justify-center">
+                <img id="showcase-photo-img" src="https://srivenkateswaracompany.com/images/solid/Brass%20Round%20head.jpg" alt="Brass Round Head Solid Rivet" class="max-w-full max-h-full object-contain filter drop-shadow-2xl transition-all duration-300">
+                <div class="absolute bottom-3 left-3 bg-slate-950/80 px-2.5 py-1 rounded text-[10px] font-mono text-slate-400 border border-slate-800">
+                  MACRO PHOTOMETRIC SCAN
+                </div>
+              </div>
+
+              <!-- Mode 2: 3D CAD Lathe View (Hidden by default) -->
+              <div id="showcase-3d-container" class="relative w-full h-full hidden">
+                <div id="showcase-rivet-canvas" class="w-full h-full cursor-grab active:cursor-grabbing rounded"></div>
+                <div class="absolute bottom-3 left-3 bg-slate-950/80 px-2.5 py-1 rounded text-[10px] font-mono text-cyan-400 border border-slate-800">
+                  REAL-TIME WEBGL LATHE • ORBIT 360°
+                </div>
+              </div>
+            </div>
+
+            <!-- Active Spec & Description Strip -->
+            <div class="mt-6 pt-4 border-t border-slate-800/80">
+              <div class="flex items-center justify-between mb-2">
+                <h3 id="showcase-model-name" class="font-display font-extrabold text-2xl text-white">Brass Round Head</h3>
+                <span class="font-mono text-xs text-amber-400 font-bold">100% IN-HOUSE HEADED</span>
+              </div>
+              <p id="showcase-desc" class="text-slate-300 text-sm leading-relaxed mb-6">
+                High decorative finish combined with natural atmospheric corrosion resistance. Favored across consumer electrical switchgear, architectural fittings, and high-visibility mechanical assemblies.
+              </p>
+
+              <!-- 4-Attribute Telemetry Grid -->
+              <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 font-mono text-xs mb-6">
+                <div class="p-2.5 bg-slate-900/80 border border-slate-800 rounded">
+                  <span class="text-slate-500 block text-[10px] uppercase">Head Profile</span>
+                  <span id="showcase-head-spec" class="text-slate-200 font-bold truncate block">Round Dome</span>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 border border-slate-800 rounded">
+                  <span class="text-slate-500 block text-[10px] uppercase">Shank Geometry</span>
+                  <span id="showcase-shank-spec" class="text-slate-200 font-bold truncate block">Full Solid</span>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 border border-slate-800 rounded">
+                  <span class="text-slate-500 block text-[10px] uppercase">Clinch Type</span>
+                  <span id="showcase-clinch-spec" class="text-slate-200 font-bold truncate block">Solid Shear</span>
+                </div>
+                <div class="p-2.5 bg-slate-900/80 border border-slate-800 rounded">
+                  <span class="text-slate-500 block text-[10px] uppercase">Tolerance</span>
+                  <span id="showcase-tol-spec" class="text-amber-400 font-bold truncate block">± 0.02 mm</span>
+                </div>
+              </div>
+
+              <!-- Action Buttons -->
+              <div class="flex flex-wrap items-center gap-3">
+                <a id="showcase-rfq-link" href="rfq.html?type=Solid&head=round&mat=brass" class="btn-industrial text-xs px-6 py-3 chamfer-sm">
+                  <span>Configure & Quote This Spec</span>
+                  <i data-lucide="calculator" class="w-4 h-4"></i>
+                </a>
+                <a id="showcase-3d-link" href="products.html#solid" class="btn-secondary text-xs px-5 py-3 chamfer-sm">
+                  <span>Open in 3D Studio</span>
+                  <i data-lucide="box" class="w-4 h-4 text-amber-400"></i>
+                </a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Supporting Selection Rail: 6 Models for Active Category (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col justify-between">
+            <div class="mb-3 flex items-center justify-between pb-2 border-b border-slate-800">
+              <span class="hud-tag text-xs text-slate-400">SELECT MODEL TO INSPECT</span>
+              <span class="font-mono text-[11px] text-amber-400">6 MODELS IN THIS FAMILY</span>
+            </div>
+
+            <!-- Dynamic Card Rail Container -->
+            <div id="showcase-selection-rail" class="space-y-2.5 overflow-y-auto max-h-[580px] pr-1">
+              <!-- Rendered via assets/js/product-showcase.js -->
+            </div>
+
+            <!-- Full Catalog Bottom CTA -->
+            <div class="mt-4 pt-4 border-t border-slate-800 flex items-center justify-between">
+              <a href="products.html" class="inline-flex items-center gap-2 font-mono text-xs text-amber-400 hover:text-amber-300 uppercase tracking-wider group">
+                <span>Explore Complete 18-Model Catalog in 3D</span>
+                <i data-lucide="arrow-right" class="w-4 h-4 transform group-hover:translate-x-1 transition-transform"></i>
+              </a>
+              <span class="font-mono text-[10px] text-slate-500">DIN / ISO SPECIFIERS</span>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         5. COLD FORGING & INTEGRATED MANUFACTURING EXCELLENCE
+         ========================================================================= -->
+    <section class="py-24 bg-surface-primary border-t border-slate-800 relative bg-industrial-grid-dense">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          
+          <div class="lg:col-span-6">
+            <span class="hud-tag mb-3">MANUFACTURING SUPERIORITY</span>
+            <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight mb-6">
+              Why Cold Forging Outperforms Conventional Machining
+            </h2>
+            <p class="text-slate-300 text-sm sm:text-base leading-relaxed mb-6">
+              Unlike turned fasteners that cut across the raw material's crystalline grain structure, cold-heading plasticizes high-tensile wire under extreme pressure, causing continuous metallurgical grain flow to follow the contour of the rivet head and shank.
+            </p>
+
+            <div class="space-y-4">
+              <div class="flex items-start gap-4 p-4 bg-slate-900/80 border border-slate-800 rounded">
+                <div class="w-8 h-8 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="shield-check" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white text-sm">Enhanced Fatigue & Shear Strength</h4>
+                  <p class="text-slate-400 text-xs mt-1">Interrupted grain lines in turned pins create micro-shear failure points. Cold heading preserves unbroken grain continuity.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 bg-slate-900/80 border border-slate-800 rounded">
+                <div class="w-8 h-8 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="cpu" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white text-sm">Zero Metal Waste & Sustainable Metallurgy</h4>
+                  <p class="text-slate-400 text-xs mt-1">Near 100% material utilization. Metal volume is displaced plastically rather than turned away into scrap chips.</p>
+                </div>
+              </div>
+
+              <div class="flex items-start gap-4 p-4 bg-slate-900/80 border border-slate-800 rounded">
+                <div class="w-8 h-8 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0 mt-0.5">
+                  <i data-lucide="zap" class="w-4 h-4"></i>
+                </div>
+                <div>
+                  <h4 class="font-display font-semibold text-white text-sm">High-Speed Automated Production</h4>
+                  <p class="text-slate-400 text-xs mt-1">Multi-station headers forge up to hundreds of parts per minute, ensuring ultra-competitive pricing and reliable volume delivery.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Metallurgical Macro Flow Image -->
+          <div class="lg:col-span-6">
+            <div class="relative bg-slate-950 p-2 rounded-lg border border-slate-800 shadow-2xl">
+              <img src="https://srivenkateswaracompany.com/images/gallery/3.jpg" alt="Cold Heading Process at SVC" class="w-full h-96 object-cover rounded" loading="lazy">
+              <div class="p-4 bg-slate-950/90 border-t border-slate-800/80 flex justify-between items-center text-xs font-mono">
+                <span class="text-slate-400">CARBIDE DIE PUNCH CHAMBER</span>
+                <span class="text-amber-400">COIMBATORE FACILITY</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Integrated Processing Strip -->
+        <div class="mt-16 pt-12 border-t border-slate-800 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 font-mono text-xs">
+          <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+            <span class="text-amber-400 font-bold block mb-1">01 / COLD HEADING</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed">Multi-station carbide dies shaping solid, semi-tubular and tubular profiles.</p>
+          </div>
+          <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+            <span class="text-amber-400 font-bold block mb-1">02 / ANNEALING</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed">Atmospheric thermal normalization restoring ductility for effortless assembly clinching.</p>
+          </div>
+          <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+            <span class="text-cyan-400 font-bold block mb-1">03 / ULTRASONIC CLEANING</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed">3-to-6 minute high-frequency cavitation removing microscopic lubricant residue.</p>
+          </div>
+          <div class="p-5 bg-slate-900/50 border border-slate-800 rounded">
+            <span class="text-cyan-400 font-bold block mb-1">04 / 80T ELECTROPLATING</span>
+            <p class="text-slate-400 text-[11px] leading-relaxed">In-house fully automated zinc, copper, brass, and passivation lines.</p>
+          </div>
+        </div>
+
+        <!-- Major Industrial Applications Strip -->
+        <div class="mt-16 pt-12 border-t border-slate-800">
+          <div class="text-center max-w-xl mx-auto mb-10">
+            <span class="hud-tag text-slate-400 mb-2">END-MARKET APPLICATIONS</span>
+            <h3 class="font-display font-bold text-2xl text-white">Supplying Critical Global Industries</h3>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="p-6 bg-slate-900/60 border border-slate-800 rounded hover:border-amber-500/40 transition-colors">
+              <div class="w-10 h-10 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center mb-4">
+                <i data-lucide="car" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white mb-2">Automotive OEM</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Brake linings, clutch plates, wiper linkages, electrical subassemblies, and chassis fastening conforming to IATF 16949 standards.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-900/60 border border-slate-800 rounded hover:border-amber-500/40 transition-colors">
+              <div class="w-10 h-10 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center mb-4">
+                <i data-lucide="zap" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white mb-2">Electrical & Switchgear</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Pure copper and brass contact rivets for circuit breakers, relays, contactors, and high-conductivity distribution blocks.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-900/60 border border-slate-800 rounded hover:border-amber-500/40 transition-colors">
+              <div class="w-10 h-10 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center mb-4">
+                <i data-lucide="utensils" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white mb-2">Cookware & Appliances</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Stainless steel, aluminum, and brass handle rivets for pressure cookers, kitchenware, and commercial food equipment.
+              </p>
+            </div>
+
+            <div class="p-6 bg-slate-900/60 border border-slate-800 rounded hover:border-amber-500/40 transition-colors">
+              <div class="w-10 h-10 rounded bg-rose-500/10 text-rose-400 flex items-center justify-center mb-4">
+                <i data-lucide="shield" class="w-5 h-5"></i>
+              </div>
+              <h4 class="font-display font-bold text-lg text-white mb-2">Ordnance & Defense</h4>
+              <p class="text-xs text-slate-400 leading-relaxed">
+                Rigid-tolerance high-tensile solid steel rivets manufactured for defense arsenals and ordnance equipment.
+              </p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         6. CERTIFIED EXCELLENCE — RECOGNIZED STANDARDS & AUDIT SHOWCASE
+         ========================================================================= -->
+    <section id="certifications-showcase" class="py-24 bg-void border-t border-slate-800 relative bg-industrial-grid">
+      <!-- Ambient Lighting Glows -->
+      <div class="absolute top-1/3 right-1/4 w-96 h-96 ambient-glow-bronze pointer-events-none"></div>
+
+      <div class="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+        
+        <!-- Section Header -->
+        <div class="text-center max-w-3xl mx-auto mb-16">
+          <div class="inline-flex items-center gap-2 px-3 py-1 bg-emerald-500/10 border border-emerald-500/20 rounded-sm mb-4">
+            <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+            <span class="hud-tag text-emerald-400">QUALITY • ENVIRONMENTAL • OCCUPATIONAL SAFETY STANDARDS</span>
+          </div>
+          <h2 class="font-display font-extrabold text-3xl sm:text-4xl lg:text-5xl text-white tracking-tight mb-4">
+            RECOGNIZED STANDARDS. ENGINEERED EXCELLENCE.
+          </h2>
+          <p class="text-slate-300 text-base sm:text-lg leading-relaxed">
+            Quality, environmental responsibility, and occupational safety are integral to our manufacturing commitment. Our Coimbatore facility operates under verified automotive and international management systems.
+          </p>
+        </div>
+
+        <!-- 3-Certificate Architectural Showcase Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch mb-12">
+          
+          <!-- Featured Certificate: IATF 16949:2016 (7 Cols) -->
+          <div class="lg:col-span-7 card-industrial p-6 sm:p-8 flex flex-col justify-between border-2 border-emerald-500/40 relative group shadow-2xl">
+            <div class="absolute top-4 right-4 z-10">
+              <span class="px-3 py-1 rounded bg-emerald-500/20 text-emerald-400 border border-emerald-500/40 font-mono text-xs font-bold">
+                AUTOMOTIVE TIER-1 BENCHMARK
+              </span>
+            </div>
+
+            <div>
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-12 h-12 rounded bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 flex items-center justify-center shrink-0">
+                  <i data-lucide="shield-check" class="w-6 h-6"></i>
+                </div>
+                <div>
+                  <span class="hud-tag green">OFFICIAL CERTIFICATION 01</span>
+                  <h3 class="font-display font-bold text-2xl text-white">IATF 16949:2016</h3>
+                </div>
+              </div>
+
+              <p class="text-slate-300 text-sm leading-relaxed mb-6">
+                Attained in <strong>January 2018</strong>, the International Automotive Task Force (IATF) 16949 standard is the global pinnacle of quality management for Tier-1 and Tier-2 automotive suppliers. Enforces defect prevention, continuous improvement, and reduction of variance and waste across our cold-forged rivet production lines.
+              </p>
+
+              <!-- Certificate Preview Box with Zoom Trigger -->
+              <div class="relative w-full h-80 sm:h-96 bg-slate-950 rounded-lg border border-slate-800 overflow-hidden cursor-pointer group/scan mb-6"
+                   data-lightbox-src="https://srivenkateswaracompany.com/images/SVC_IATF%201.jpg"
+                   data-lightbox-title="IATF 16949:2016 Official Certificate — Sri Venkateswara Company"
+                   data-lightbox-desc="Scope: Manufacture of Cold Forged Rivets • Coimbatore Facility • Audited Quality Management System"
+                   data-lightbox-badge="IATF 16949:2016 OFFICIAL SCAN">
+                <img src="https://srivenkateswaracompany.com/images/SVC_IATF%201.jpg" alt="IATF 16949:2016 Official Certificate" class="w-full h-full object-contain filter group-hover/scan:scale-105 transition-transform duration-500" loading="lazy">
+                
+                <!-- Hover Overlay Lens -->
+                <div class="absolute inset-0 bg-slate-950/60 opacity-0 group-hover/scan:opacity-100 transition-opacity flex items-center justify-center backdrop-blur-xs">
+                  <span class="btn-industrial text-xs px-4 py-2 chamfer-sm">
+                    <i data-lucide="maximize-2" class="w-4 h-4"></i>
+                    <span>Inspect Full 300-DPI Document Scan</span>
+                  </span>
+                </div>
+                <div class="absolute bottom-3 left-3 bg-slate-950/90 px-2.5 py-1 rounded text-[10px] font-mono text-emerald-400 border border-slate-800">
+                  ORIGINAL DOCUMENT SCAN • CLICK TO EXPAND
+                </div>
+              </div>
+            </div>
+
+            <!-- Metadata & Verification Details -->
+            <div class="pt-4 border-t border-slate-800 flex flex-wrap items-center justify-between gap-4 font-mono text-xs">
+              <div>
+                <span class="text-slate-500 block text-[10px]">ISSUING BODY / SCOPE</span>
+                <span class="text-slate-200">Manufacture of Cold Forged Rivets</span>
+              </div>
+              <div class="flex items-center gap-2">
+                <span class="verification-flag text-[10px]" title="Client website records indicate January 2018 certification. Active recertification validity cycle under client review.">ACTIVE RE-CERTIFICATION VERIFY</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Supporting Certificates (5 Cols) -->
+          <div class="lg:col-span-5 flex flex-col gap-6 justify-between">
+            
+            <!-- Certificate 2: ISO 14001:2015 -->
+            <div class="card-industrial p-6 flex-1 flex flex-col justify-between border border-slate-800 hover:border-cyan-500/50 transition-colors">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="hud-tag cyan">OFFICIAL CERTIFICATION 02</span>
+                  <span class="px-2 py-0.5 rounded bg-cyan-500/10 text-cyan-400 border border-cyan-500/30 font-mono text-[10px]">
+                    ENVIRONMENTAL
+                  </span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white mb-2">ISO 14001:2015</h4>
+                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                  Environmental Management System ensuring disciplined chemical neutralization, eco-compliant solvent recycling in our ultrasonic cleaning bays, and responsible wastewater treatment at our 80-tonne automated electroplating plant.
+                </p>
+
+                <!-- Mini Scan Preview -->
+                <div class="relative w-full h-44 bg-slate-950 rounded border border-slate-800 overflow-hidden cursor-pointer group/iso2 mb-3"
+                     data-lightbox-src="https://srivenkateswaracompany.com/images/SVC_IATF%202.jpg"
+                     data-lightbox-title="ISO 14001:2015 Environmental Management Certificate"
+                     data-lightbox-desc="Scope: Environmental Compliance in Cold Heading & Surface Electroplating"
+                     data-lightbox-badge="ISO 14001:2015 OFFICIAL SCAN">
+                  <img src="https://srivenkateswaracompany.com/images/SVC_IATF%202.jpg" alt="ISO 14001:2015 Certificate" class="w-full h-full object-contain filter group-hover/iso2:scale-105 transition-transform duration-300" loading="lazy">
+                  <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover/iso2:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="px-3 py-1 bg-cyan-600 text-white font-mono text-[10px] rounded">Inspect Document Scan ↗</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-800 flex justify-between items-center font-mono text-[10px] text-slate-400">
+                <span>PLANT ECO-COMPLIANCE</span>
+                <button type="button" class="text-cyan-400 hover:text-cyan-300 font-bold transition-colors cursor-pointer"
+                        data-lightbox-src="https://srivenkateswaracompany.com/images/SVC_IATF%202.jpg"
+                        data-lightbox-title="ISO 14001:2015 Environmental Management Certificate"
+                        data-lightbox-desc="Scope: Environmental Compliance in Cold Heading & Surface Electroplating"
+                        data-lightbox-badge="ISO 14001:2015 OFFICIAL SCAN">
+                  INSPECT SCAN →
+                </button>
+              </div>
+            </div>
+
+            <!-- Certificate 3: ISO 45001:2018 -->
+            <div class="card-industrial p-6 flex-1 flex flex-col justify-between border border-slate-800 hover:border-amber-500/50 transition-colors">
+              <div>
+                <div class="flex items-center justify-between mb-3">
+                  <span class="hud-tag text-amber-400">OFFICIAL CERTIFICATION 03</span>
+                  <span class="px-2 py-0.5 rounded bg-amber-500/10 text-amber-400 border border-amber-500/30 font-mono text-[10px]">
+                    OCCUPATIONAL SAFETY
+                  </span>
+                </div>
+                <h4 class="font-display font-bold text-xl text-white mb-2">ISO 45001:2018</h4>
+                <p class="text-slate-400 text-xs leading-relaxed mb-4">
+                  Occupational Health and Safety Management System protecting our 100+ skilled workforce across high-speed cold heading bays, annealing heat furnaces, and automated chemical plating operations.
+                </p>
+
+                <!-- Mini Scan Preview -->
+                <div class="relative w-full h-44 bg-slate-950 rounded border border-slate-800 overflow-hidden cursor-pointer group/iso3 mb-3"
+                     data-lightbox-src="https://srivenkateswaracompany.com/images/SVC_IATF%203.jpg"
+                     data-lightbox-title="ISO 45001:2018 Occupational Health & Safety Certificate"
+                     data-lightbox-desc="Scope: Workplace Safety & Health Systems in Fastener Manufacturing"
+                     data-lightbox-badge="ISO 45001:2018 OFFICIAL SCAN">
+                  <img src="https://srivenkateswaracompany.com/images/SVC_IATF%203.jpg" alt="ISO 45001:2018 Certificate" class="w-full h-full object-contain filter group-hover/iso3:scale-105 transition-transform duration-300" loading="lazy">
+                  <div class="absolute inset-0 bg-slate-950/50 opacity-0 group-hover/iso3:opacity-100 transition-opacity flex items-center justify-center">
+                    <span class="px-3 py-1 bg-amber-600 text-white font-mono text-[10px] rounded">Inspect Document Scan ↗</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-3 border-t border-slate-800 flex justify-between items-center font-mono text-[10px] text-slate-400">
+                <span>WORKFORCE INTEGRITY</span>
+                <button type="button" class="text-amber-400 hover:text-amber-300 font-bold transition-colors cursor-pointer"
+                        data-lightbox-src="https://srivenkateswaracompany.com/images/SVC_IATF%203.jpg"
+                        data-lightbox-title="ISO 45001:2018 Occupational Health & Safety Certificate"
+                        data-lightbox-desc="Scope: Workplace Safety & Health Systems in Fastener Manufacturing"
+                        data-lightbox-badge="ISO 45001:2018 OFFICIAL SCAN">
+                  INSPECT SCAN →
+                </button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+
+        <!-- Metrology Lab Credential Strip -->
+        <div class="p-6 bg-slate-900/60 border border-slate-800 rounded-lg flex flex-col md:flex-row items-center justify-between gap-6 font-mono text-xs">
+          <div class="flex items-center gap-4">
+            <div class="w-10 h-10 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center shrink-0">
+              <i data-lucide="check-check" class="w-5 h-5"></i>
+            </div>
+            <div>
+              <span class="text-white font-bold block font-sans text-sm">Audited Verification Transparency</span>
+              <span class="text-slate-400">All certificates represent authentic document scans. Optical profile projectors & ASTM B117 salt spray verification active.</span>
+            </div>
+          </div>
+          <a href="quality.html" class="btn-secondary text-xs px-5 py-2.5 chamfer-sm whitespace-nowrap">
+            <span>Explore Complete Metrology Lab</span>
+            <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         7. SIXTY YEARS OF HERITAGE TIMELINE (1964 — 2026)
+         ========================================================================= -->
+    <section class="py-24 bg-surface-primary border-t border-slate-800 relative">
+      <div class="max-w-5xl mx-auto px-6 md:px-12">
+        
+        <div class="text-center mb-16">
+          <span class="hud-tag mb-2">A SIX-DECADE TRAJECTORY</span>
+          <h2 class="font-display font-bold text-3xl sm:text-4xl text-white tracking-tight">
+            Our Manufacturing Story Since 1964
+          </h2>
+        </div>
+
+        <div class="relative border-l-2 border-slate-800 ml-4 md:ml-32 space-y-12">
+          
+          <!-- 1964 -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-amber-500 border-4 border-slate-950"></div>
+            <span class="font-mono text-sm font-bold text-amber-400">1964</span>
+            <h3 class="font-display font-bold text-lg text-white mt-1">Ancillary Inception with TI Cycles of India</h3>
+            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+              Founded by Rm. M.V. Muthiah Chettiar in Karakudi, Chettinad, Sri Venkateswara Company began operations as a dedicated ancillary unit manufacturing bicycle rivets for TI Cycles of India.
+            </p>
+          </div>
+
+          <!-- Relocation to Coimbatore -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
+            <span class="font-mono text-sm font-bold text-slate-400">STRATEGIC EXPANSION</span>
+            <h3 class="font-display font-bold text-lg text-white mt-1">Industrial Relocation to Coimbatore</h3>
+            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+              Recognizing Coimbatore's emerging stature as the engineering hub of South India, MVM Muthu consolidated operations and established the modern manufacturing facility in Periyanaickenpalayam.
+            </p>
+          </div>
+
+          <!-- Current Leadership -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-slate-600 border-4 border-slate-950"></div>
+            <span class="font-mono text-sm font-bold text-slate-400">MODERN LEADERSHIP</span>
+            <h3 class="font-display font-bold text-lg text-white mt-1">Over 35 Years Under Jawahar Muthu</h3>
+            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+              Current CEO Jawahar Muthu assumed executive management, bringing over three and a half decades of hands-on expertise in cold-forged rivet engineering and tooling optimization.
+            </p>
+          </div>
+
+          <!-- 2018 IATF Certification -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-emerald-500 border-4 border-slate-950"></div>
+            <span class="font-mono text-sm font-bold text-emerald-400">JANUARY 2018</span>
+            <h3 class="font-display font-bold text-lg text-white mt-1">Attainment of IATF 16949:2016</h3>
+            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+              Officially secured the globally recognized automotive quality management certification, demonstrating continual defect prevention, variance waste reduction, and rigorous supply chain reliability.
+            </p>
+          </div>
+
+          <!-- Global Exports -->
+          <div class="relative pl-8 md:pl-12">
+            <div class="absolute -left-[9px] top-1.5 w-4 h-4 rounded-full bg-cyan-400 border-4 border-slate-950"></div>
+            <span class="font-mono text-sm font-bold text-cyan-400">GLOBAL EXPANSION</span>
+            <h3 class="font-display font-bold text-lg text-white mt-1">Export Shipments to Europe & SE Asia</h3>
+            <p class="text-slate-400 text-sm mt-2 leading-relaxed">
+              SVC broadened its footprint into international export markets, shipping precision rivets to clients in Germany and Thailand.
+              <span class="verification-flag text-[9px] block mt-2 w-max">CONFIRMING CURRENT FREQUENCY</span>
+            </p>
+          </div>
+
+        </div>
+
+        <div class="text-center mt-12">
+          <a href="about.html" class="btn-secondary text-xs chamfer-sm">
+            <span>Read Complete Corporate History</span>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         8. CALL TO ACTION: TECHNICAL RFQ
+         ========================================================================= -->
+    <section class="py-24 bg-gradient-to-b from-void to-surface-primary border-t border-slate-800 relative">
+      <div class="max-w-5xl mx-auto px-6 md:px-12 text-center">
+        <span class="hud-tag green mb-3">INSTANT ENGINEERING INTAKE</span>
+        <h2 class="font-display font-extrabold text-3xl sm:text-5xl text-white tracking-tight mb-6">
+          Ready to Manufacture Your Custom Rivet?
+        </h2>
+        <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto mb-8">
+          Upload your blueprint dimensions, tolerances, material grades, and surface finishes into our interactive RFQ calculator for a 24-hour turnaround.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4">
+          <a href="rfq.html" class="btn-industrial text-sm px-8 py-4 chamfer-sm shadow-xl shadow-amber-900/30">
+            <span>Launch Technical Quotation Builder</span>
+            <i data-lucide="arrow-right" class="w-4 h-4"></i>
+          </a>
+          <a href="contact.html" class="btn-secondary text-sm px-8 py-4 chamfer-sm">
+            <span>Contact Engineering Desk</span>
+          </a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================================
+       9. ARCHITECTURAL INDUSTRIAL FOOTER
+       ========================================================================= -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-16 px-6 md:px-12 text-slate-400 text-xs">
+    <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
+      
+      <!-- Company Bio -->
+      <div class="lg:col-span-2 space-y-4">
+        <div class="flex items-center gap-2">
+          <span class="font-display font-black text-amber-500 text-xl tracking-wider">SVC</span>
+          <span class="font-display font-bold text-white text-base">SRI VENKATESWARA COMPANY</span>
+        </div>
+        <p class="text-slate-400 leading-relaxed max-w-sm">
+          Manufacturers and exporters of cold-forged precision rivets, semi-tubular and tubular fasteners. Sixty years of metallurgical precision based in Coimbatore, Tamil Nadu, India.
+        </p>
+        <div class="pt-2 flex items-center gap-2 font-mono text-[11px] text-amber-400">
+          <span class="w-2 h-2 rounded-full bg-emerald-500"></span>
+          <span>IATF 16949:2016 Quality Management Certified</span>
+        </div>
+      </div>
+
+      <!-- Fastener Products -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Products</h4>
+        <ul class="space-y-2 font-mono">
+          <li><a href="products.html#solid" class="hover:text-amber-400 transition-colors">Solid Rivets</a></li>
+          <li><a href="products.html#semi-tubular" class="hover:text-amber-400 transition-colors">Semi-Tubular Rivets</a></li>
+          <li><a href="products.html#tubular" class="hover:text-amber-400 transition-colors">Tubular Rivets</a></li>
+          <li><a href="products.html" class="hover:text-amber-400 transition-colors">3D Product Visualizer</a></li>
+          <li><a href="products.html" class="hover:text-amber-400 transition-colors">DIN / ISO Specification</a></li>
+        </ul>
+      </div>
+
+      <!-- Services & Plant -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Capabilities</h4>
+        <ul class="space-y-2 font-mono">
+          <li><a href="services.html#cold-forging" class="hover:text-amber-400 transition-colors">Cold Forging (Heading)</a></li>
+          <li><a href="services.html#annealing" class="hover:text-amber-400 transition-colors">Annealing Heat Treatment</a></li>
+          <li><a href="services.html#ultrasonic" class="hover:text-amber-400 transition-colors">Ultrasonic Bath Cleaning</a></li>
+          <li><a href="services.html#plating" class="hover:text-amber-400 transition-colors">80T Automated Plating</a></li>
+          <li><a href="quality.html" class="hover:text-amber-400 transition-colors">Quality Control Metrology</a></li>
+        </ul>
+      </div>
+
+      <!-- Plant Coordinates & Contact -->
+      <div class="space-y-3">
+        <h4 class="font-display font-bold text-white text-sm uppercase tracking-wider">Manufacturing Plant</h4>
+        <p class="leading-relaxed">
+          S.F No: 626/1-2, Idikarai Road,<br>
+          Periyanaickenpalayam,<br>
+          Coimbatore, Tamil Nadu, 641022
+        </p>
+        <p class="font-mono text-white">
+          Phone: <a href="tel:+919047077874" class="hover:text-amber-400">+91 (904) 707-7874</a><br>
+          Email: <a href="mailto:marketing@srivenkateswaracompany.in" class="hover:text-amber-400">marketing@srivenkateswaracompany.in</a>
+        </p>
+      </div>
+
+    </div>
+
+    <div class="max-w-7xl mx-auto mt-12 pt-8 border-t border-slate-900 flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-slate-500">
+      <p>© 2026 Sri Venkateswara Company. All Rights Reserved. Engineered for Global Fastener Excellence.</p>
+      <div class="flex items-center gap-6">
+        <a href="rfq.html" class="hover:text-slate-400">Request Quote</a>
+        <a href="contact.html" class="hover:text-slate-400">Privacy & Terms</a>
+        <a href="about.html" class="hover:text-slate-400">History</a>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="assets/js/three-rivet-scene.js"></script>
+  <script src="assets/js/motion-effects.js"></script>
+  <script src="assets/js/product-showcase.js"></script>
+  <script src="assets/js/main.js"></script>
+  
+  <script>
+    // Initialize Hero 3D Rivet Canvas & Global Controls
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      // Hero Rivet 3D Scene
+      const heroViewer = new SVCRivetViewer('hero-rivet-canvas', {
+        rivetType: 'solid',
+        headType: 'round',
+        materialKey: 'brass',
+        autoRotate: true,
+        cameraDistance: 60
+      });
+
+      // Material Selector for Hero
+      document.querySelectorAll('#hero-material-selector button').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          const mat = e.currentTarget.getAttribute('data-mat');
+          heroViewer.setMaterial(mat);
+          document.querySelectorAll('#hero-material-selector button').forEach(b => {
+            b.classList.remove('border-white/80', 'border-2');
+            b.classList.add('border-transparent');
+          });
+          e.currentTarget.classList.add('border-white/80', 'border-2');
+          e.currentTarget.classList.remove('border-transparent');
+          if (window.showIndustrialToast) {
+            window.showIndustrialToast(`Material updated: ${mat.toUpperCase()}`);
+          }
+        });
+      });
+
+      // Hero Wireframe toggle
+      const wfBtn = document.getElementById('hero-wireframe-btn');
+      if (wfBtn) {
+        wfBtn.addEventListener('click', () => {
+          const isWf = heroViewer.toggleWireframe();
+          wfBtn.classList.toggle('bg-amber-600', isWf);
+          wfBtn.classList.toggle('text-white', isWf);
+        });
+      }
+
+      // Hero Cutaway toggle
+      const cutBtn = document.getElementById('hero-cutaway-btn');
+      if (cutBtn) {
+        cutBtn.addEventListener('click', () => {
+          const isCut = heroViewer.toggleCutaway();
+          cutBtn.classList.toggle('bg-cyan-600', isCut);
+          cutBtn.classList.toggle('text-white', isCut);
+        });
+      }
+    });
+  </script>
+</body>
+</html>

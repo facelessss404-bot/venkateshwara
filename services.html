@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Manufacturing & Services | Sri Venkateswara Company — Cold Forging, Annealing & Plating</title>
+  <meta name="description" content="SVC's precision manufacturing capabilities: Cold Heading, In-House Annealing, 3-6 minute Ultrasonic Cleaning, and 80-tonne Automated Electroplating Plant in Coimbatore.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Request a Quote</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-amber-400 font-bold">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <a href="rfq.html" class="btn-industrial w-full justify-center">
+        <span>Request Technical Quote</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="py-16 bg-industrial-grid border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-3xl">
+          <span class="hud-tag text-amber-400 mb-3">END-TO-END IN-HOUSE METALLURGY</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight mb-4">
+            Integrated Manufacturing & Finishing Services
+          </h1>
+          <p class="text-slate-300 text-lg leading-relaxed">
+            From precision high-velocity cold forging to controlled atmosphere annealing, 3-6 minute ultrasonic agitation, and an 80-tonne automated electroplating plant. Every critical stage is controlled under one roof in Coimbatore.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 1: COLD FORGING -->
+    <section id="cold-forging" class="py-20 bg-void border-b border-slate-800 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-16">
+          <div class="lg:col-span-6 space-y-6">
+            <span class="hud-tag mb-1">CAPABILITY 01</span>
+            <h2 class="font-display font-bold text-3xl text-white">Precision Cold Heading (Cold Forging)</h2>
+            <p class="text-slate-300 text-sm leading-relaxed">
+              Cold heading is high-speed cold metal forming where coiled wire rod is cut to precise blank lengths and forced into carbide dies under multi-station punches at ambient temperatures.
+            </p>
+            <div class="grid grid-cols-2 gap-4 pt-2">
+              <div class="p-4 bg-slate-900 border border-slate-800 rounded">
+                <span class="font-mono text-amber-400 font-bold text-base block">ZERO CHIP SCRAP</span>
+                <p class="text-xs text-slate-400 mt-1">Material is formed plastically rather than cut away, eliminating metal waste.</p>
+              </div>
+              <div class="p-4 bg-slate-900 border border-slate-800 rounded">
+                <span class="font-mono text-cyan-400 font-bold text-base block">CONTINUOUS GRAIN</span>
+                <p class="text-xs text-slate-400 mt-1">Internal metallurgical crystalline flow lines follow the rivet contours.</p>
+              </div>
+            </div>
+          </div>
+          <div class="lg:col-span-6">
+            <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-950 p-2 shadow-xl">
+              <img src="https://srivenkateswaracompany.com/images/gallery/1.jpg" alt="Cold Heading Machinery" class="w-full h-80 object-cover rounded" loading="lazy">
+            </div>
+          </div>
+        </div>
+
+        <!-- Interactive 4-Stage Heading Tooling Walkthrough -->
+        <div class="p-6 bg-slate-950 border border-slate-800 rounded-lg">
+          <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center mb-6 pb-4 border-b border-slate-800 gap-2">
+            <div>
+              <span class="hud-tag text-amber-400">METALLURGICAL TRANSFORMATION PIPELINE</span>
+              <h3 class="font-display font-bold text-lg text-white">The 4-Station Cold Heading Stroke Sequence</h3>
+            </div>
+            <span class="font-mono text-xs text-slate-400">CYCLE CADENCE: UP TO 300 PPM</span>
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 font-mono text-xs">
+            <div class="p-4 bg-slate-900/80 border border-slate-800 rounded relative group hover:border-amber-500/50 transition-colors">
+              <span class="text-amber-400 font-bold block mb-1">STAGE 01 // CUTOFF</span>
+              <h4 class="font-sans font-bold text-white text-sm mb-2">Wire Straightening & Shear</h4>
+              <p class="text-slate-400 text-xs font-sans">High-tensile wire coil is straightened through carbide rollers and sheared with square cut face into a measured slug.</p>
+              <div class="mt-4 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">TOLERANCE: ±0.03 mm LENGTH</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border border-slate-800 rounded relative group hover:border-amber-500/50 transition-colors">
+              <span class="text-cyan-400 font-bold block mb-1">STAGE 02 // CONE UPSET</span>
+              <h4 class="font-sans font-bold text-white text-sm mb-2">Primary Punch Upset</h4>
+              <p class="text-slate-400 text-xs font-sans">First punch strikes the protruding wire, gathering metal volume into a symmetrical conical bulb without eccentric grain bending.</p>
+              <div class="mt-4 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">PRE-FORM CONE ANGLE: 60°</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border border-slate-800 rounded relative group hover:border-amber-500/50 transition-colors">
+              <span class="text-emerald-400 font-bold block mb-1">STAGE 03 // DIE CAVITY</span>
+              <h4 class="font-sans font-bold text-white text-sm mb-2">Secondary Finish Header</h4>
+              <p class="text-slate-400 text-xs font-sans">Finishing punch compresses head into final geometry (round, mushroom, flat) and backward-extrudes tubular tip cavity.</p>
+              <div class="mt-4 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">PRESSURE: 80+ TONS/CM²</div>
+            </div>
+
+            <div class="p-4 bg-slate-900/80 border border-slate-800 rounded relative group hover:border-amber-500/50 transition-colors">
+              <span class="text-amber-400 font-bold block mb-1">STAGE 04 // EJECTION</span>
+              <h4 class="font-sans font-bold text-white text-sm mb-2">Pneumatic Part Ejection</h4>
+              <p class="text-slate-400 text-xs font-sans">Positive knockout pin thrusts finished fastener out of the carbide die directly onto sorting conveyer without part collision.</p>
+              <div class="mt-4 pt-2 border-t border-slate-800/80 text-[10px] text-slate-500">PARTS/MIN: CONTINUOUS FEED</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- SERVICE 2: ANNEALING -->
+    <section id="annealing" class="py-20 bg-surface-primary border-b border-slate-800 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-950 p-2 shadow-xl">
+            <img src="https://srivenkateswaracompany.com/images/services/annealing.jpg" alt="Annealing Heat Treatment Furnace" class="w-full h-80 object-cover rounded" loading="lazy">
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+          <span class="hud-tag text-amber-400 mb-1">CAPABILITY 02</span>
+          <h2 class="font-display font-bold text-3xl text-white">Annealing (Heat Treatment Normalization)</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Severe cold deformation increases the hardness and tensile strain within the rivet metal. Annealing is our specialized thermal process used to normalize the interatomic crystalline space of components following the forging operation.
+          </p>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            By heating components to critical recrystallization thresholds and cooling under regulated atmospheres, we significantly increase the <strong>ductility and workability</strong> of the rivets, ensuring flawless roll-forming and clinching on customer assembly lines without splitting or shank embrittlement.
+          </p>
+          <div class="p-4 bg-slate-900 border border-slate-800 rounded font-mono text-xs text-slate-300">
+            <span class="text-amber-400 font-bold block mb-1">SPECIFICATION HIGHLIGHT</span>
+            Controlled soak cycle restores elongation percentage up to 35% for effortless automated clinching.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 3: ULTRASONIC CLEANING -->
+    <section id="ultrasonic" class="py-20 bg-void border-b border-slate-800 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 space-y-6">
+          <span class="hud-tag cyan mb-1">CAPABILITY 03</span>
+          <h2 class="font-display font-bold text-3xl text-white">Ultra-Sonic Agitation Cleaning</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Prior to surface plating or packaging, components must be completely free of forging lubricants, micro-chips, and particulate contamination.
+          </p>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Our ultrasonic cleaning process utilizes proprietary chemical solvents in combination with high-frequency sound waves. These ultrasound waves generate millions of microscopic cavitation bubbles that violently implode against the metal surface, thoroughly dislodging debris from deep blind holes and tubular rivet cavities.
+          </p>
+          <div class="flex items-center gap-4 font-mono text-xs text-slate-300">
+            <div class="px-3 py-2 bg-slate-900 border border-slate-800 rounded">
+              <span class="text-cyan-400 font-bold block">DURATION</span>
+              3 to 6 Minutes Cycle
+            </div>
+            <div class="px-3 py-2 bg-slate-900 border border-slate-800 rounded">
+              <span class="text-cyan-400 font-bold block">SOLVENT CAVITATION</span>
+              100% Blind Hole Penetration
+            </div>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-950 p-2 shadow-xl">
+            <img src="https://srivenkateswaracompany.com/images/services/ultra-sonic.jpg" alt="Ultrasonic Cleaning Bath" class="w-full h-80 object-cover rounded" loading="lazy">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE 4: 80T ELECTROPLATING -->
+    <section id="plating" class="py-20 bg-surface-primary border-b border-slate-800 scroll-mt-24">
+      <div class="max-w-7xl mx-auto px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div class="lg:col-span-6 order-2 lg:order-1">
+          <div class="rounded-lg overflow-hidden border border-slate-800 bg-slate-950 p-2 shadow-xl">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=1200&q=80" alt="80 Tonne Automated Electroplating Plant" class="w-full h-80 object-cover rounded" loading="lazy" onerror="this.src='https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80'">
+          </div>
+        </div>
+        <div class="lg:col-span-6 order-1 lg:order-2 space-y-6">
+          <span class="hud-tag green mb-1">CAPABILITY 04</span>
+          <h2 class="font-display font-bold text-3xl text-white">80-Tonne Automated In-House Plating Plant</h2>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            Sri Venkateswara Company houses a fully automated, PLC-controlled barrel electroplating facility boasting a heavy industrial throughput capacity of <strong>80 tonnes per month</strong>.
+          </p>
+          <p class="text-slate-300 text-sm leading-relaxed">
+            By maintaining this monumental finishing capability on-site in Coimbatore, we avoid the quality inconsistency, hydrogen embrittlement risks, and transit delays associated with third-party job platers.
+          </p>
+
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 font-mono text-xs">
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">ZINC CLEAR</span>
+              Trivalent RoHS Passivated
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">YELLOW ZINC</span>
+              High-Corrosion Salt Spray
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">NICKEL</span>
+              Automotive Bright Finish
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">COPPER FLASH</span>
+              Electrical Conductivity
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">BRASS FLASH</span>
+              Decorative Hardware
+            </div>
+            <div class="p-3 bg-slate-950 border border-slate-800 rounded text-center">
+              <span class="text-amber-400 font-bold block">TIN COATING</span>
+              Soldering Solderability
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="py-20 bg-void text-center">
+      <div class="max-w-4xl mx-auto px-6 md:px-12">
+        <h2 class="font-display font-extrabold text-3xl sm:text-4xl text-white mb-4">
+          Need Custom Surface Finishing or Heat Treatment?
+        </h2>
+        <p class="text-slate-400 text-base mb-8 max-w-xl mx-auto">
+          Specify your exact plating thickness in microns and salt-spray hour requirements directly in our RFQ form.
+        </p>
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Configure Technical RFQ</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6 md:px-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Sri Venkateswara Company. Coimbatore, India.</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="products.html" class="hover:text-amber-400">Products</a>
+        <a href="rfq.html" class="hover:text-amber-400">Request Quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+    });
+  </script>
+</body>
+</html>
+

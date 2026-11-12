@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us | Sri Venkateswara Company — Coimbatore Manufacturing Plant</title>
+  <meta name="description" content="Get in touch with Sri Venkateswara Company (SVC). Plant location at Idikarai Road, Periyanaickenpalayam, Coimbatore, Tamil Nadu. Direct engineering sales inquiry.">
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700;800&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            void: '#07090e',
+            surface: {
+              primary: '#0d121b',
+              secondary: '#131b26',
+              elevated: '#1a2433'
+            },
+            metal: {
+              bronze: '#d97706',
+              brass: '#f59e0b',
+              stainless: '#f1f5f9',
+              titanium: '#94a3b8',
+              cyan: '#38bdf8'
+            }
+          },
+          fontFamily: {
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+            display: ['"Space Grotesk"', 'sans-serif'],
+            mono: ['"JetBrains Mono"', 'monospace']
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Lucide Icons -->
+  <script src="https://unpkg.com/lucide@latest"></script>
+
+  <!-- Custom Industrial Theme -->
+  <link rel="stylesheet" href="assets/css/custom-industrial.css">
+</head>
+<body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
+
+  <!-- Header -->
+  <header id="main-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 py-4 px-6 md:px-12 bg-slate-950/90 backdrop-blur-md border-b border-slate-800">
+    <div class="max-w-7xl mx-auto flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3 group">
+        <div class="w-10 h-10 rounded bg-gradient-to-br from-amber-500 to-amber-700 p-0.5 chamfer-sm flex items-center justify-center shadow-lg shadow-amber-900/30">
+          <div class="w-full h-full bg-slate-950 flex items-center justify-center chamfer-sm">
+            <span class="font-display font-black text-amber-400 text-lg tracking-wider">SVC</span>
+          </div>
+        </div>
+        <div class="flex flex-col">
+          <span class="font-display font-bold text-white text-base tracking-tight group-hover:text-amber-400 transition-colors">SRI VENKATESWARA</span>
+          <span class="font-mono text-[10px] tracking-widest text-slate-400 uppercase">Precision Rivets • Est. 1964</span>
+        </div>
+      </a>
+
+      <nav class="hidden lg:flex items-center gap-8">
+        <a href="index.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Home</a>
+        <a href="about.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">About Us</a>
+        <a href="products.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Products & 3D</a>
+        <a href="services.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Manufacturing</a>
+        <a href="quality.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Quality</a>
+        <a href="gallery.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Gallery</a>
+        <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-amber-400 font-semibold">Contact</a>
+      </nav>
+
+      <div class="hidden sm:flex items-center gap-4">
+        <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
+          <span>Request a Quote</span>
+          <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+        </a>
+      </div>
+
+      <button id="mobile-menu-toggle" aria-label="Toggle Navigation Menu" class="lg:hidden p-2 text-slate-300 hover:text-amber-400">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+  </header>
+
+  <!-- Mobile Drawer -->
+  <div id="mobile-drawer" class="fixed inset-0 z-50 bg-slate-950/95 backdrop-blur-xl transform translate-x-full transition-transform duration-300 lg:hidden flex flex-col p-8 justify-between">
+    <div class="flex items-center justify-between pb-6 border-b border-slate-800">
+      <span class="font-display font-bold text-white text-lg">SRI VENKATESWARA CO.</span>
+      <button id="mobile-drawer-close" aria-label="Close Navigation Menu" class="p-2 text-slate-400 hover:text-white">
+        <i data-lucide="x" class="w-6 h-6"></i>
+      </button>
+    </div>
+    <nav class="flex flex-col gap-6 py-8">
+      <a href="index.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Home</a>
+      <a href="about.html" class="text-lg font-display text-slate-200 hover:text-amber-400">About Us</a>
+      <a href="products.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Products & 3D Viewer</a>
+      <a href="services.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Manufacturing & Services</a>
+      <a href="quality.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Quality & Standards</a>
+      <a href="gallery.html" class="text-lg font-display text-slate-200 hover:text-amber-400">Plant Gallery</a>
+      <a href="contact.html" class="text-lg font-display text-amber-400 font-bold">Contact Us</a>
+    </nav>
+    <div class="pt-6 border-t border-slate-800">
+      <a href="rfq.html" class="btn-industrial w-full justify-center">
+        <span>Request Technical Quote</span>
+      </a>
+    </div>
+  </div>
+
+  <main class="pt-24">
+    <!-- Hero -->
+    <section class="py-16 bg-industrial-grid border-b border-slate-800">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="max-w-3xl">
+          <span class="hud-tag text-amber-400 mb-3">COIMBATORE HEADQUARTERS</span>
+          <h1 class="font-display font-extrabold text-4xl sm:text-5xl text-white tracking-tight mb-4">
+            Connect With Our Engineering Sales Desk
+          </h1>
+          <p class="text-slate-300 text-lg leading-relaxed">
+            Reach out directly to discuss custom rivet tooling, high-volume production schedules, export logistics, or on-site facility visits in Coimbatore.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT DETAILS & FORM -->
+    <section class="py-20 bg-void">
+      <div class="max-w-7xl mx-auto px-6 md:px-12">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+          
+          <!-- Contact Cards Column -->
+          <div class="lg:col-span-5 space-y-6">
+            
+            <!-- Plant Address -->
+            <div class="p-6 bg-surface-primary border border-slate-800 rounded-lg">
+              <div class="flex items-center gap-3 mb-4">
+                <div class="w-10 h-10 rounded bg-amber-500/10 text-amber-400 flex items-center justify-center">
+                  <i data-lucide="map-pin" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="hud-tag text-[10px]">FACTORY HEADQUARTERS</span>
+                  <h3 class="font-display font-bold text-white text-base">Coimbatore Plant</h3>
+                </div>
+              </div>
+              <p class="text-slate-300 text-sm leading-relaxed font-mono">
+                Sri Venkateswara Company<br>
+                S.F No: 626/1-2, Idikarai Road,<br>
+                Periyanaickenpalayam,<br>
+                Coimbatore, Tamil Nadu, 641022, India
+              </p>
+            </div>
+
+            <!-- Phone Direct -->
+            <div class="p-6 bg-surface-primary border border-slate-800 rounded-lg flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-cyan-500/10 text-cyan-400 flex items-center justify-center">
+                  <i data-lucide="phone-call" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="hud-tag cyan text-[10px]">DIRECT DESK</span>
+                  <a href="tel:+919047077874" class="font-mono font-bold text-white text-base hover:text-amber-400 transition-colors block">
+                    +91 (904) 707-7874
+                  </a>
+                </div>
+              </div>
+              <button data-copy-val="+919047077874" class="p-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 text-xs font-mono" title="Copy Phone Number">
+                COPY
+              </button>
+            </div>
+
+            <!-- Email Direct -->
+            <div class="p-6 bg-surface-primary border border-slate-800 rounded-lg flex items-center justify-between">
+              <div class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded bg-emerald-500/10 text-emerald-400 flex items-center justify-center">
+                  <i data-lucide="mail" class="w-5 h-5"></i>
+                </div>
+                <div>
+                  <span class="hud-tag green text-[10px]">COMMERCIAL INQUIRIES</span>
+                  <a href="mailto:marketing@srivenkateswaracompany.in" class="font-mono font-bold text-white text-sm hover:text-amber-400 transition-colors block truncate max-w-[200px] sm:max-w-xs">
+                    marketing@srivenkateswaracompany.in
+                  </a>
+                </div>
+              </div>
+              <button data-copy-val="marketing@srivenkateswaracompany.in" class="p-2 bg-slate-900 hover:bg-slate-800 text-slate-300 rounded border border-slate-700 text-xs font-mono" title="Copy Email">
+                COPY
+              </button>
+            </div>
+
+            <!-- Operating Hours -->
+            <div class="p-6 bg-surface-primary border border-slate-800 rounded-lg">
+              <span class="hud-tag text-[10px] mb-2">PLANT OPERATING SHIFTS</span>
+              <div class="space-y-2 font-mono text-xs text-slate-300 mt-2">
+                <div class="flex justify-between">
+                  <span>Monday – Friday:</span>
+                  <span class="text-white font-bold">08:30 AM – 06:30 PM IST</span>
+                </div>
+                <div class="flex justify-between">
+                  <span>Saturday:</span>
+                  <span class="text-white font-bold">08:30 AM – 04:30 PM IST</span>
+                </div>
+                <div class="flex justify-between text-slate-500">
+                  <span>Sunday:</span>
+                  <span>Plant Maintenance / Closed</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- General Inquiry Form -->
+          <div class="lg:col-span-7 bg-surface-primary p-8 border border-slate-800 rounded-lg shadow-xl">
+            <span class="hud-tag text-amber-400 mb-2">DISPATCH TRANSMISSION</span>
+            <h3 class="font-display font-bold text-2xl text-white mb-6">General Commercial Inquiry</h3>
+
+            <form id="general-inquiry-form" class="space-y-4">
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Your Full Name *</label>
+                  <input type="text" id="contact-name" required placeholder="e.g. Rajesh Kumar" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Corporate Email *</label>
+                  <input type="email" id="contact-email" required placeholder="e.g. rajesh@company.com" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                </div>
+              </div>
+
+              <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Direct Phone *</label>
+                  <input type="tel" id="contact-phone" required placeholder="+91 ..." class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                </div>
+                <div>
+                  <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Company / Organization</label>
+                  <input type="text" id="contact-company" placeholder="e.g. Automotive Component Ltd" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Inquiry Subject</label>
+                <select id="contact-subject" class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors">
+                  <option value="General Inquiry">General Fastener Inquiry</option>
+                  <option value="Tooling Consultation">Custom Cold Forging Tooling</option>
+                  <option value="Plating Facility">80T Electroplating Services</option>
+                  <option value="Export Order">Export Order Logistics (Germany / SE Asia)</option>
+                  <option value="Plant Visit">Factory Audit / Plant Visit</option>
+                </select>
+              </div>
+
+              <div>
+                <label class="block text-xs font-mono text-slate-400 uppercase mb-1">Message / Requirements *</label>
+                <textarea id="contact-message" required rows="4" placeholder="Detail your rivet requirements, annual quantities, or tooling blueprint notes..." class="w-full bg-slate-950 border border-slate-800 focus:border-amber-500 text-white px-3 py-2.5 rounded text-sm outline-none transition-colors"></textarea>
+              </div>
+
+              <div class="pt-2 flex flex-col sm:flex-row justify-between items-center gap-4">
+                <p class="text-slate-500 text-xs font-mono">
+                  Looking to specify shank diameters in mm? Use our <a href="rfq.html" class="text-amber-400 underline">Technical RFQ Form</a>.
+                </p>
+                <button type="submit" class="btn-industrial text-xs chamfer-sm w-full sm:w-auto">
+                  <span>Send Message</span>
+                  <i data-lucide="send" class="w-3.5 h-3.5"></i>
+                </button>
+              </div>
+            </form>
+          </div>
+
+        </div>
+
+        <!-- Google Map Container -->
+        <div class="mt-16 rounded-lg overflow-hidden border border-slate-800 bg-slate-950 h-80 relative shadow-2xl">
+          <div class="absolute top-4 left-4 z-10 bg-slate-950/90 border border-slate-800 p-3 rounded font-mono text-xs text-white">
+            <span class="hud-tag green mb-1">GPS COORDINATES</span>
+            <p>11.1442° N, 76.9366° E • Periyanaickenpalayam</p>
+          </div>
+          <iframe 
+            title="Sri Venkateswara Company Plant Location" 
+            src="https://maps.google.com/maps?q=Periyanaickenpalayam,%20Coimbatore&t=&z=13&ie=UTF8&iwloc=&output=embed" 
+            class="w-full h-full border-0 filter grayscale invert contrast-125 opacity-75 hover:opacity-100 transition-opacity" 
+            allowfullscreen="" 
+            loading="lazy">
+          </iframe>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-slate-950 border-t border-slate-800 py-12 px-6 md:px-12 text-slate-400 text-xs font-mono">
+    <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+      <p>© 2026 Sri Venkateswara Company. Coimbatore, India.</p>
+      <div class="flex gap-6">
+        <a href="index.html" class="hover:text-amber-400">Home</a>
+        <a href="about.html" class="hover:text-amber-400">About</a>
+        <a href="products.html" class="hover:text-amber-400">Products</a>
+        <a href="rfq.html" class="hover:text-amber-400">Request Quote</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/motion-effects.js"></script>
+  <script src="assets/js/main.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      lucide.createIcons();
+
+      const form = document.getElementById('general-inquiry-form');
+      if (form) {
+        form.addEventListener('submit', (e) => {
+          e.preventDefault();
+          const name = document.getElementById('contact-name').value;
+          form.reset();
+          if (window.showIndustrialToast) {
+            window.showIndustrialToast(`Thank you, ${name}. Your message has been received by our Coimbatore desk.`, 'success');
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>
+
