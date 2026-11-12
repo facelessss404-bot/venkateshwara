@@ -37,7 +37,38 @@ git push -u origin main
 
 ---
 
-## 🚀 Quick Start / How to Run
+## 🤖 SVC Intelligent Engineering Assistant & Knowledge System
+
+The website features an enterprise-grade industrial engineering assistant built with a **Dual-Engine RAG (Retrieval-Augmented Generation) Architecture**:
+
+### 1. Key Capabilities
+- **60-Year Verified Knowledge Base**: Grounded strictly in Sri Venkateswara Company facts (Coimbatore plant, Est. 1964, CEO Jawahar Muthu 35+ years experience, TI Cycles heritage, IATF 16949:2016 certification).
+- **18 Catalog Model Discovery**: Solid Rivets (DIN 660), Semi-Tubular Rivets (DIN 7338), and Tubular Rivets (DIN 7340).
+- **Interactive Product Finder Flow**: 3-step guided conversational questionnaire recommending exact models based on substrate, priority (shear vs low clinch force), and atmospheric environment.
+- **Guided Technical RFQ Builder**: Conversational parameter intake (shank diameter, shank length, head style, material) with 1-click **"Transfer to Live CAD Workbench"** bridge.
+- **Beginner Mode vs Technical Mode**: Header toggle switching between intuitive analogies (for students & beginners) and formal metallurgical specifications (DIN, tolerances, recrystallization).
+- **Zero-Overlap Netlify Badge Clearance**: Floating launcher sits at `bottom: 90px; right: 24px;`, safely floating above Netlify's bottom-right brand badge.
+
+### 2. Dual-Engine Architecture & Netlify Serverless Backend
+- **Endpoint**: `/.netlify/functions/svc-assistant` ([`netlify/functions/svc-assistant.js`](file:///d:/Ideaseternal_Projects/Client_9_srivenkateswara/netlify/functions/svc-assistant.js))
+- **Zero-Dependency Local Fallback**: When no external AI provider API key is configured or when offline/testing locally, the assistant automatically uses the deterministic client-side/server-side RAG classifier ([`assets/js/svc-knowledge-base.js`](file:///d:/Ideaseternal_Projects/Client_9_srivenkateswara/assets/js/svc-knowledge-base.js)). It never throws errors or leaves users hanging!
+- **Optional Generative AI Key**: To enable external LLM reasoning, simply add `GEMINI_API_KEY` (or `OPENAI_API_KEY`) to Netlify:
+  1. Open [Netlify Dashboard](https://app.netlify.com/) → Your Site → **Site configuration** → **Environment variables**.
+  2. Add variable: `GEMINI_API_KEY` = `your_gemini_api_key_here`.
+  3. Trigger a redeploy. The function will seamlessly upgrade to generative responses with grounded prompt shielding!
+
+---
+
+## ⚡ Additional Integrated Website Features
+
+1. **Global Smart Search & Command Palette (`Ctrl + K`)**:
+   - Indexed across all 18 products, 4 manufacturing capabilities, 3 certifications, and contact coordinates.
+   - Accessible via `Ctrl + K` (or `Cmd + K`) or clicking "Search" in the navbar.
+2. **Product Comparison Studio Modal**:
+   - Interactive side-by-side matrix comparing Solid vs Semi-Tubular vs Tubular rivets across 8 engineering metrics (clinch force, shear rating, substrate safety, cycle speed).
+   - Accessible via the **"Compare 3D"** button in the navbar.
+3. **Parametric CAD RFQ Pre-population**:
+   - [`rfq.html`](file:///d:/Ideaseternal_Projects/Client_9_srivenkateswara/rfq.html) dynamically parses query parameters (`?type=...&head=...&mat=...&dia=...&len=...`) to pre-fill the form, redraw the parametric SVG blueprint, and estimate part weights in real time.
 
 You can run the project in any of the following simple ways:
 

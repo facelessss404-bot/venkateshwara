@@ -7,11 +7,10 @@ echo "  SRI VENKATESWARA COMPANY (SVC) - PRODUCTION REPOSITORY DEPLOYMENT"
 echo "====================================================================="
 
 git init
-git remote remove origin 2>/dev/null || true
-git remote add origin https://github.com/facelessss404-bot/venkateshwara.git
+git remote set-url origin https://github.com/facelessss404-bot/venkateshwara.git 2>/dev/null || git remote add origin https://github.com/facelessss404-bot/venkateshwara.git
 git branch -M main
 git add .
-git commit -m "feat: Sri Venkateswara Company (SVC) official website - production release"
+git commit -m "feat: Add SVC Intelligent Engineering Assistant, RAG Knowledge Base, Smart Search & Comparison Studio"
 git push -u origin main
 
 echo ""

@@ -2,6 +2,7 @@
 
 [build]
   publish = "."
+  functions = "netlify/functions"
 
 # Production Headers for Performance, Security & Caching
 [[headers]]

@@ -45,8 +45,9 @@
   <!-- Lucide Icons -->
   <script src="https://unpkg.com/lucide@latest"></script>
 
-  <!-- Custom Industrial Theme -->
+  <!-- Custom Industrial Theme & Assistant UI -->
   <link rel="stylesheet" href="assets/css/custom-industrial.css">
+  <link rel="stylesheet" href="assets/css/svc-assistant.css">
 </head>
 <body class="bg-void text-slate-200 antialiased selection:bg-amber-500 selection:text-black">
 
@@ -75,7 +76,16 @@
         <a href="contact.html" class="text-xs uppercase font-mono tracking-wider text-slate-300 hover:text-amber-400 transition-colors">Contact</a>
       </nav>
 
-      <div class="hidden sm:flex items-center gap-4">
+      <div class="hidden sm:flex items-center gap-3">
+        <button data-trigger-search class="flex items-center gap-2 px-2.5 py-1.5 rounded bg-slate-900 border border-slate-700/80 hover:border-amber-500/50 text-slate-400 hover:text-white transition-colors text-xs font-mono" title="Search website (Ctrl + K)">
+          <i data-lucide="search" class="w-3.5 h-3.5 text-amber-400"></i>
+          <span class="hidden md:inline text-[11px]">Search</span>
+          <kbd class="hidden md:inline text-[9px] bg-slate-800 px-1.5 py-0.5 rounded text-slate-400">Ctrl K</kbd>
+        </button>
+        <button data-open-comparison class="hidden xl:flex items-center gap-1.5 px-2.5 py-1.5 rounded bg-slate-900 border border-slate-700/80 hover:border-cyan-500/50 text-slate-300 hover:text-white transition-colors text-xs font-mono" title="Open Product Comparison Studio">
+          <i data-lucide="columns" class="w-3.5 h-3.5 text-cyan-400"></i>
+          <span class="text-[11px]">Compare 3D</span>
+        </button>
         <a href="rfq.html" class="btn-industrial text-xs chamfer-sm">
           <span>Request a Quote</span>
           <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
@@ -406,6 +416,10 @@
 
   <script src="assets/js/motion-effects.js"></script>
   <script src="assets/js/main.js"></script>
+  <script src="assets/js/svc-knowledge-base.js"></script>
+  <script src="assets/js/svc-assistant.js"></script>
+  <script src="assets/js/smart-search.js"></script>
+  <script src="assets/js/comparison-studio.js"></script>
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       lucide.createIcons();
